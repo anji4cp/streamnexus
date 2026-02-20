@@ -1,6 +1,6 @@
 <div align="center">
 
-![logo](public/images/logo.svg)
+![logo](public/images/logo_readme.svg)
 
 # StreamNexus
 ### Premium Multi-Platform Streaming Solution
