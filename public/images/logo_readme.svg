@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 70" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 70" fill="none">
   <defs>
     <linearGradient id="readmeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
@@ -11,7 +11,6 @@
   <path d="M40 24 C44 27 44 43 40 46" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.6"/>
   <path d="M45 20 C50.5 24 50.5 46 45 50" stroke="white" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.35"/>
   <!-- Text -->
-  <text x="72" y="44" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="bold" font-size="36" fill="#3B82F6">Stream</text>
-  <text x="187" y="44" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="bold" font-size="36" fill="#8B5CF6">Nexus</text>
-  <text x="72" y="60" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="12" fill="#6B7280">Premium Multi-Platform Streaming Solution</text>
+  <text x="75" y="44" font-family="Inter, Segoe UI, system-ui, sans-serif" font-weight="bold" font-size="36" fill="#3B82F6">Stream<tspan fill="#8B5CF6">Nexus</tspan></text>
+  <text x="75" y="60" font-family="Inter, Segoe UI, system-ui, sans-serif" font-size="12" fill="#6B7280">Premium Multi-Platform Streaming Solution</text>
 </svg>
