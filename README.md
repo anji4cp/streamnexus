@@ -44,7 +44,7 @@ sudo apt-get install -y nodejs ffmpeg git
 ### 2. Setup StreamNexus
 Clone the repository and install dependencies:
 ```bash
-git clone https://github.com/AndisDev/streamnexus.git
+git clone https://github.com/anji4cp/streamnexus.git
 cd streamnexus
 npm install
 ```
@@ -77,4 +77,4 @@ docker-compose up -d --build
 Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
 ---
-© 2026 - **AndisDev**
+© 2026 - **streamnexus**

@@ -1,39 +1,40 @@
 <% layout('layout') -%>
-<div class="md:hidden mb-4" style="margin-top: -10px;">
-  <div class="bg-gray-800 rounded-lg px-3 py-2 shadow-md">
-    <div class="flex items-center justify-between gap-2 overflow-x-auto scrollbar-hide">
-      <div class="flex items-center gap-1.5 flex-shrink-0">
-        <i class="ti ti-broadcast text-primary text-sm font-loaded"></i>
-        <span class="text-xs font-bold text-white">0</span>
-        <span class="text-[10px] text-gray-400">live</span>
-      </div>
-      <div class="w-px h-4 bg-gray-700 flex-shrink-0"></div>
-      <div class="flex items-center gap-1.5 flex-shrink-0">
-        <i class="ti ti-cpu text-blue-400 text-sm font-loaded"></i>
-        <span id="cpu-usage-mobile" class="text-xs font-bold text-white">0</span>
-        <span class="text-[10px] text-gray-400">%</span>
-      </div>
-      <div class="w-px h-4 bg-gray-700 flex-shrink-0"></div>
-      <div class="flex items-center gap-1.5 flex-shrink-0">
-        <i class="ti ti-device-sd-card text-green-400 text-sm font-loaded"></i>
-        <span id="memory-usage-mobile" class="text-xs font-bold text-white">0</span>
-        <span id="memory-total-mobile" class="text-[10px] text-gray-400">/ 0</span>
-      </div>
-      <div class="w-px h-4 bg-gray-700 flex-shrink-0"></div>
-      <div class="flex items-center gap-1.5 flex-shrink-0 cursor-pointer" onclick="toggleNetworkDiskDisplay('mobile')">
-        <i class="ti ti-wifi text-yellow-400 text-sm font-loaded" id="toggle-icon-mobile"></i>
-        <div id="network-content-mobile" class="flex items-center gap-1">
-          <span class="text-[10px] text-blue-400">↑<span id="upload-speed-mobile" class="font-bold">0</span></span>
-          <span class="text-[10px] text-green-400">↓<span id="download-speed-mobile" class="font-bold">0</span></span>
+  <div class="md:hidden mb-4" style="margin-top: -10px;">
+    <div class="bg-gray-800 rounded-lg px-3 py-2 shadow-md">
+      <div class="flex items-center justify-between gap-2 overflow-x-auto scrollbar-hide">
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          <i class="ti ti-broadcast text-primary text-sm font-loaded"></i>
+          <span class="text-xs font-bold text-white">0</span>
+          <span class="text-[10px] text-gray-400">live</span>
         </div>
-        <div id="disk-content-mobile" class="items-center gap-1" style="display: none;">
-          <span id="disk-used-mobile" class="text-xs font-bold text-white">0</span>
-          <span id="disk-total-mobile" class="text-[10px] text-gray-400">/ 0</span>
+        <div class="w-px h-4 bg-gray-700 flex-shrink-0"></div>
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          <i class="ti ti-cpu text-blue-400 text-sm font-loaded"></i>
+          <span id="cpu-usage-mobile" class="text-xs font-bold text-white">0</span>
+          <span class="text-[10px] text-gray-400">%</span>
+        </div>
+        <div class="w-px h-4 bg-gray-700 flex-shrink-0"></div>
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          <i class="ti ti-device-sd-card text-green-400 text-sm font-loaded"></i>
+          <span id="memory-usage-mobile" class="text-xs font-bold text-white">0</span>
+          <span id="memory-total-mobile" class="text-[10px] text-gray-400">/ 0</span>
+        </div>
+        <div class="w-px h-4 bg-gray-700 flex-shrink-0"></div>
+        <div class="flex items-center gap-1.5 flex-shrink-0 cursor-pointer"
+          onclick="toggleNetworkDiskDisplay('mobile')">
+          <i class="ti ti-wifi text-yellow-400 text-sm font-loaded" id="toggle-icon-mobile"></i>
+          <div id="network-content-mobile" class="flex items-center gap-1">
+            <span class="text-[10px] text-blue-400">↑<span id="upload-speed-mobile" class="font-bold">0</span></span>
+            <span class="text-[10px] text-green-400">↓<span id="download-speed-mobile" class="font-bold">0</span></span>
+          </div>
+          <div id="disk-content-mobile" class="items-center gap-1" style="display: none;">
+            <span id="disk-used-mobile" class="text-xs font-bold text-white">0</span>
+            <span id="disk-total-mobile" class="text-[10px] text-gray-400">/ 0</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
   <div class="hidden md:grid md:grid-cols-2 lg:grid-cols-4 3xl:grid-cols-5 gap-6 mb-6">
     <div class="bg-gray-800 rounded-lg p-6 shadow-md">
       <div class="flex items-center justify-between">
@@ -41,7 +42,7 @@
         <div class="w-10 h-10 bg-dark-700 rounded-lg flex items-center justify-center">
           <i class="ti ti-broadcast text-xl text-white font-loaded"></i>
         </div>
-      </div>      
+      </div>
       <p class="text-3xl font-bold mt-2">0</p>
     </div>
     <div class="bg-gray-800 rounded-lg p-6 shadow-md">
@@ -55,7 +56,7 @@
       <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
         <div id="cpu-bar" class="bg-primary h-2.5 rounded-full" style="width: 0%"></div>
       </div>
-    </div>    
+    </div>
     <div class="bg-gray-800 rounded-lg p-6 shadow-md">
       <div class="flex items-center justify-between">
         <h3 class="text-lg font-semibold">Memory</h3>
@@ -70,7 +71,7 @@
         <div id="memory-bar" class="bg-primary h-2.5 rounded-full" style="width: 0%"></div>
       </div>
     </div>
-    <div class="bg-gray-800 rounded-lg p-6 shadow-md hidden 3xl:block">      
+    <div class="bg-gray-800 rounded-lg p-6 shadow-md hidden 3xl:block">
       <div class="flex items-center justify-between">
         <h3 class="text-lg font-semibold">Disk Usage</h3>
         <div class="w-10 h-10 bg-dark-700 rounded-lg flex items-center justify-center">
@@ -80,16 +81,19 @@
       <div class="mt-2">
         <p class="text-3xl font-bold">
           <span id="disk-used-wide">0 GB</span><span id="disk-total-wide" class="text-sm text-gray-400"> / 0 GB</span>
-        </p>        
+        </p>
         <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
-          <div id="disk-bar-wide" class="bg-primary h-2.5 rounded-full transition-colors duration-300" style="width: 0%"></div>
+          <div id="disk-bar-wide" class="bg-primary h-2.5 rounded-full transition-colors duration-300"
+            style="width: 0%"></div>
         </div>
       </div>
     </div>
-    <div class="bg-gray-800 rounded-lg p-6 shadow-md 3xl:hidden">      
+    <div class="bg-gray-800 rounded-lg p-6 shadow-md 3xl:hidden">
       <div class="flex items-center justify-between">
         <h3 class="text-lg font-semibold" id="network-disk-title">Internet Speed</h3>
-        <div class="w-10 h-10 bg-dark-700 hover:bg-dark-600 rounded-lg flex items-center justify-center cursor-pointer transition-colors duration-200" onclick="toggleNetworkDiskDisplay('desktop')" title="Click to switch between Internet Speed and Disk Usage">
+        <div
+          class="w-10 h-10 bg-dark-700 hover:bg-dark-600 rounded-lg flex items-center justify-center cursor-pointer transition-colors duration-200"
+          onclick="toggleNetworkDiskDisplay('desktop')" title="Click to switch between Internet Speed and Disk Usage">
           <i class="ti ti-wifi text-xl text-white font-loaded" id="toggle-icon-desktop"></i>
         </div>
       </div>
@@ -106,13 +110,14 @@
       <div id="disk-content-desktop" class="mt-2" style="display: none;">
         <p class="text-3xl font-bold">
           <span id="disk-used">0 GB</span><span id="disk-total" class="text-sm text-gray-400"> / 0 GB</span>
-        </p>        
+        </p>
         <div class="w-full bg-gray-700 rounded-full h-2.5 mt-2">
-          <div id="disk-bar" class="bg-primary h-2.5 rounded-full transition-colors duration-300" style="width: 0%"></div>
+          <div id="disk-bar" class="bg-primary h-2.5 rounded-full transition-colors duration-300" style="width: 0%">
+          </div>
         </div>
       </div>
     </div>
-    <div class="bg-gray-800 rounded-lg p-6 shadow-md hidden 3xl:block">      
+    <div class="bg-gray-800 rounded-lg p-6 shadow-md hidden 3xl:block">
       <div class="flex items-center justify-between">
         <h3 class="text-lg font-semibold">Internet Speed</h3>
         <div class="w-10 h-10 bg-dark-700 rounded-lg flex items-center justify-center">
@@ -158,19 +163,24 @@
             <tr>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Stream Name
               </th>
-              <% if (typeof youtubeConnected !== 'undefined' && youtubeConnected) { %>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Channel</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Dashboard</th>
-              <% } %>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Platform</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Schedule</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
-              <th class="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">Actions</th>
+              <% if (typeof youtubeConnected !=='undefined' && youtubeConnected) { %>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Channel</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Dashboard
+                </th>
+                <% } %>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Platform
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Schedule
+                  </th>
+                  <th class="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
+                  <th class="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">Actions
+                  </th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-gray-700">
+          <tbody id="stream-list-body" class="divide-y divide-gray-700">
             <tr id="empty-state" class="hover:bg-dark-700/50 transition-colors" style="display: none;">
-              <td colspan="<%= (typeof youtubeConnected !== 'undefined' && youtubeConnected) ? '7' : '5' %>" class="px-6 py-10 text-center">
+              <td colspan="<%= (typeof youtubeConnected !== 'undefined' && youtubeConnected) ? '7' : '5' %>"
+                class="px-6 py-10 text-center">
                 <div class="flex flex-col items-center">
                   <div class="w-16 h-16 rounded-full bg-dark-700 flex items-center justify-center mb-4">
                     <i class="ti ti-broadcast text-gray-500 text-2xl"></i>
@@ -198,7 +208,8 @@
         <div class="flex-shrink-0 flex items-center justify-between p-4 sm:px-6 sm:py-4 border-b border-gray-700">
           <h3 class="text-lg font-semibold">Create New Stream</h3>
           <div class="flex items-center gap-2">
-            <button type="button" onclick="openTipsStreaming()" class="flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors shadow-sm">
+            <button type="button" onclick="openTipsStreaming()"
+              class="flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors shadow-sm">
               <i class="ti ti-bulb"></i>
               <span class="text-sm">Tips</span>
             </button>
@@ -211,439 +222,488 @@
           <form id="newStreamForm" class="space-y-6">
             <input type="hidden" id="selectedVideoId" name="videoId" value="">
             <input type="hidden" id="streamMode" name="streamMode" value="manual">
-            
-            <% if (typeof youtubeConnected !== 'undefined' && youtubeConnected) { %>
-            <div class="flex gap-2 p-1 bg-dark-900 rounded-lg">
-              <button type="button" id="manualModeBtn" onclick="setStreamMode('manual')" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors bg-primary text-white">
-                <i class="ti ti-settings"></i>
-                <span class="text-sm font-medium">Manual (RTMP)</span>
-              </button>
-              <button type="button" id="autoModeBtn" onclick="setStreamMode('auto')" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700">
-                <i class="ti ti-brand-youtube"></i>
-                <span class="text-sm font-medium">YouTube API</span>
-              </button>
-            </div>
-            <% } %>
 
-            <div id="manualStreamForm">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div class="space-y-4">
-                <div class="relative">
-                  <label class="text-sm font-medium text-white block mb-2">Select Video</label>
-                  <div class="relative">
-                    <button type="button" onclick="toggleVideoSelector()"
-                      class="w-full flex items-center justify-between px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-left">
-                      <span class="text-sm text-gray-300" id="selectedVideo">Choose a video...</span>
-                      <i class="ti ti-chevron-down text-gray-400"></i>
-                    </button>
-                    <div id="videoSelectorDropdown"
-                      class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
-                      <div class="p-2 border-b border-gray-600/50">
-                        <div class="relative">
-                          <input type="text" id="videoSearchInput"
-                            class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700"
-                            placeholder="Search videos...">
-                          <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                        </div>
-                      </div>
-                      <div id="videoListContainer" class="p-2 space-y-1 max-h-60 overflow-y-auto">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="lg:hidden bg-dark-900 rounded-lg overflow-hidden">
-                  <div class="aspect-video bg-dark-900">
-                    <div id="videoPreviewMobile" class="hidden w-full h-full">
-                      <video id="native-preview-mobile" class="native-video-player"
-                        controls preload="metadata">
-                        <source src="" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    <div id="emptyPreviewMobile" class="h-full flex flex-col items-center justify-center">
-                      <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
-                      <p class="text-sm text-gray-500">Select a video to preview</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <label class="text-sm font-medium text-white block mb-2">Stream Title</label>
-                  <input type="text"
-                    class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
-                    placeholder="Enter stream title..." name="streamTitle" id="streamTitle" required>
-                </div>
-                <div class="space-y-4">
-                  <label class="text-sm font-medium text-white block">Stream Configuration</label>
-                  <div class="space-y-3">
-                    <div class="relative">
-                      <input type="text" id="rtmpUrl" name="rtmpUrl"
-                        class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
-                        placeholder="RTMP URL" required>
-                      <i class="ti ti-link absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                      <button type="button" id="platformSelector"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-dark-600 transition-colors"
-                        aria-label="Select platform">
-                        <i class="ti ti-list-check text-gray-400 hover:text-primary"></i>
-                      </button>
-                      <div id="platformDropdown"
-                        class="hidden absolute z-10 right-0 mt-1 w-48 bg-dark-700 rounded-lg border border-gray-600 shadow-lg overflow-hidden">
-                        <div class="py-1">
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://a.rtmp.youtube.com/live2">
-                            <i class="ti ti-brand-youtube text-red-500 text-base mr-2"></i>
-                            <span class="text-sm">YouTube</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://live-api-s.facebook.com:443/rtmp">
-                            <i class="ti ti-brand-facebook text-blue-500 text-base mr-2"></i>
-                            <span class="text-sm">Facebook</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://ingest.global.live.prod.tiktok.com/live">
-                            <i class="ti ti-brand-tiktok text-black text-base mr-2"></i>
-                            <span class="text-sm">TikTok</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://live.shopee.co.id/live">
-                            <i class="ti ti-brand-shopee text-orange-500 text-base mr-2"></i>
-                            <span class="text-sm">Shopee Live</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://live.twitch.tv/live">
-                            <i class="ti ti-brand-twitch text-purple-500 text-base mr-2"></i>
-                            <span class="text-sm">Twitch</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="relative">
-                      <input type="password" id="streamKey" name="streamKey"
-                        class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
-                        placeholder="Stream Key" required>
-                      <i class="ti ti-key absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                      <button type="button" onclick="toggleStreamKeyVisibility()"
-                        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
-                        <i class="ti ti-eye" id="streamKeyToggle"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="hidden lg:block">
-                <div class="overflow-hidden h-full">
-                  <div class="aspect-video rounded-lg bg-dark-900">
-                    <div id="videoPreview" class="hidden w-full h-full">
-                      <video id="native-preview-desktop"
-                        class="native-video-player rounded-lg" controls preload="metadata">
-                        <source src="" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    <div id="emptyPreview" class="h-full flex flex-col items-center justify-center">
-                      <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
-                      <p class="text-sm text-gray-500">Select a video to preview</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-2 mt-4 mb-6">
-              <div class="flex flex-col sm:flex-row sm:items-center">
-                <label class="text-sm font-medium text-white">Schedule Settings</label>
-                <span id="serverTimeDisplay"
-                  class="mt-1 sm:mt-0 sm:ml-2 block sm:inline-block bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">
-                  Server time: loading...
-                </span>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div class="h-[42px] mt-3 flex items-center justify-between">
-                  <label class="text-sm text-gray-300">Loop Video</label>
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" name="loopVideo" class="sr-only peer" checked>
-                    <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
-                    <div
-                      class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
-                    </div>
-                  </label>
-                </div>
-                <div>
-                  <label class="text-xs text-gray-400 block mb-1">Start Stream</label>
-                  <input type="datetime-local" id="scheduleStartTime" name="scheduleStartTime"
-                    class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
-                </div>
-                <div>
-                  <label class="text-xs text-gray-400 mb-1 flex items-end">
-                    <span>End Stream</span>
-                    <span id="durationBadge" class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden leading-none">00:00</span>
-                  </label>
-                  <input type="datetime-local" id="scheduleEndTime" name="scheduleEndTime"
-                    class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
-                </div>
-              </div>
-            </div>
-            <div class="space-y-4">
-              <div class="pt-2 border-t border-gray-700">
-                <button type="button" id="advancedSettingsToggle"
-                  class="flex items-center justify-between w-full text-left">
-                  <div class="flex items-center">
-                    <span class="text-sm font-medium text-white">Advanced Settings</span>
-                    <div class="relative ml-2 group">
-                      <i class="ti ti-info-circle text-gray-400 hover:text-primary"></i>
-                      <div
-                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2 bg-dark-600 text-xs text-gray-200 rounded-md shadow-lg z-10">
-                        <div class="text-center">Menggunakan advanced settings, proses streaming akan menjadi lebih
-                          berat karena ada proses re-encoding video</div>
-                        <div
-                          class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-dark-600">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" id="advancedSettingsCheckbox" class="sr-only peer">
-                    <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
-                    <div class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5"></div>
-                  </label>
+            <% if (typeof youtubeConnected !=='undefined' && youtubeConnected) { %>
+              <div class="flex gap-2 p-1 bg-dark-900 rounded-lg">
+                <button type="button" id="manualModeBtn" onclick="setStreamMode('manual')"
+                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors bg-primary text-white">
+                  <i class="ti ti-settings"></i>
+                  <span class="text-sm font-medium">Manual (RTMP)</span>
                 </button>
-                <div id="advancedSettingsContent" class="hidden space-y-6 pt-4">
-                  <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-3 mb-4">
-                    <div class="flex items-start">
-                      <i class="ti ti-alert-triangle text-yellow-500 text-sm mt-0.5 mr-2 flex-shrink-0"></i>
+                <button type="button" id="autoModeBtn" onclick="setStreamMode('auto')"
+                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700">
+                  <i class="ti ti-brand-youtube"></i>
+                  <span class="text-sm font-medium">YouTube API</span>
+                </button>
+              </div>
+              <% } %>
+
+                <div id="manualStreamForm">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                      <div class="relative">
+                        <label class="text-sm font-medium text-white block mb-2">Select Video</label>
+                        <div class="relative">
+                          <button type="button" onclick="toggleVideoSelector()"
+                            class="w-full flex items-center justify-between px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-left">
+                            <span class="text-sm text-gray-300" id="selectedVideo">Choose a video...</span>
+                            <i class="ti ti-chevron-down text-gray-400"></i>
+                          </button>
+                          <div id="videoSelectorDropdown"
+                            class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
+                            <div class="p-2 border-b border-gray-600/50">
+                              <div class="relative">
+                                <input type="text" id="videoSearchInput"
+                                  class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700"
+                                  placeholder="Search videos...">
+                                <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                              </div>
+                            </div>
+                            <div id="videoListContainer" class="p-2 space-y-1 max-h-60 overflow-y-auto">
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="lg:hidden bg-dark-900 rounded-lg overflow-hidden">
+                        <div class="aspect-video bg-dark-900">
+                          <div id="videoPreviewMobile" class="hidden w-full h-full">
+                            <video id="native-preview-mobile" class="native-video-player" controls preload="metadata">
+                              <source src="" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                          <div id="emptyPreviewMobile" class="h-full flex flex-col items-center justify-center">
+                            <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
+                            <p class="text-sm text-gray-500">Select a video to preview</p>
+                          </div>
+                        </div>
+                      </div>
                       <div>
-                        <p class="text-yellow-200 text-xs font-medium">Advanced Settings Warning</p>
-                        <p class="text-yellow-300/80 text-xs mt-1">Using advanced settings will make the streaming process more resource-intensive</p>
+                        <label class="text-sm font-medium text-white block mb-2">Stream Title</label>
+                        <input type="text"
+                          class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                          placeholder="Enter stream title..." name="streamTitle" id="streamTitle" required>
+                      </div>
+                      <div class="space-y-4">
+                        <label class="text-sm font-medium text-white block">Stream Configuration</label>
+                        <div class="space-y-3">
+                          <div class="relative">
+                            <input type="text" id="rtmpUrl" name="rtmpUrl"
+                              class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                              placeholder="RTMP URL" required>
+                            <i class="ti ti-link absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <button type="button" id="platformSelector"
+                              class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-dark-600 transition-colors"
+                              aria-label="Select platform">
+                              <i class="ti ti-list-check text-gray-400 hover:text-primary"></i>
+                            </button>
+                            <div id="platformDropdown"
+                              class="hidden absolute z-10 right-0 mt-1 w-48 bg-dark-700 rounded-lg border border-gray-600 shadow-lg overflow-hidden">
+                              <div class="py-1">
+                                <button type="button"
+                                  class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                                  data-url="rtmps://a.rtmp.youtube.com/live2">
+                                  <i class="ti ti-brand-youtube text-red-500 text-base mr-2"></i>
+                                  <span class="text-sm">YouTube</span>
+                                </button>
+                                <button type="button"
+                                  class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                                  data-url="rtmps://live-api-s.facebook.com:443/rtmp">
+                                  <i class="ti ti-brand-facebook text-blue-500 text-base mr-2"></i>
+                                  <span class="text-sm">Facebook</span>
+                                </button>
+                                <button type="button"
+                                  class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                                  data-url="rtmps://ingest.global.live.prod.tiktok.com/live">
+                                  <i class="ti ti-brand-tiktok text-black text-base mr-2"></i>
+                                  <span class="text-sm">TikTok</span>
+                                </button>
+                                <button type="button"
+                                  class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                                  data-url="rtmps://live.shopee.co.id/live">
+                                  <i class="ti ti-brand-shopee text-orange-500 text-base mr-2"></i>
+                                  <span class="text-sm">Shopee Live</span>
+                                </button>
+                                <button type="button"
+                                  class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                                  data-url="rtmps://live.twitch.tv/live">
+                                  <i class="ti ti-brand-twitch text-purple-500 text-base mr-2"></i>
+                                  <span class="text-sm">Twitch</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="relative">
+                            <input type="password" id="streamKey" name="streamKey"
+                              class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                              placeholder="Stream Key" required>
+                            <i class="ti ti-key absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                            <button type="button" onclick="toggleStreamKeyVisibility()"
+                              class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
+                              <i class="ti ti-eye" id="streamKeyToggle"></i>
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="hidden lg:block">
+                      <div class="overflow-hidden h-full">
+                        <div class="aspect-video rounded-lg bg-dark-900">
+                          <div id="videoPreview" class="hidden w-full h-full">
+                            <video id="native-preview-desktop" class="native-video-player rounded-lg" controls
+                              preload="metadata">
+                              <source src="" type="video/mp4">
+                              Your browser does not support the video tag.
+                            </video>
+                          </div>
+                          <div id="emptyPreview" class="h-full flex flex-col items-center justify-center">
+                            <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
+                            <p class="text-sm text-gray-500">Select a video to preview</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="space-y-2 mt-4 mb-6">
+                    <div class="flex flex-col sm:flex-row sm:items-center">
+                      <label class="text-sm font-medium text-white">Schedule Settings</label>
+                      <span id="serverTimeDisplay"
+                        class="mt-1 sm:mt-0 sm:ml-2 block sm:inline-block bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">
+                        Server time: loading...
+                      </span>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div class="h-[42px] mt-3 flex items-center justify-between">
+                        <label class="text-sm text-gray-300">Loop Video</label>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                          <input type="checkbox" name="loopVideo" class="sr-only peer" checked>
+                          <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
+                          <div
+                            class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
+                          </div>
+                        </label>
+                      </div>
+                      <div>
+                        <label class="text-xs text-gray-400 block mb-1">Start Stream</label>
+                        <input type="datetime-local" id="scheduleStartTime" name="scheduleStartTime"
+                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
+                      </div>
+                      <div>
+                        <label class="text-xs text-gray-400 mb-1 flex items-end">
+                          <span>End Stream</span>
+                          <span id="durationBadge"
+                            class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden leading-none">00:00</span>
+                        </label>
+                        <input type="datetime-local" id="scheduleEndTime" name="scheduleEndTime"
+                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
                       </div>
                     </div>
                   </div>
                   <div class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Bitrate</label>
-                        <select name="bitrate" id="bitrateSelect"
-                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
-                          <option value="2500" selected>2500 kbps</option>
-                          <option value="4000">4000 kbps</option>
-                          <option value="6000">6000 kbps</option>
-                          <option value="8000">8000 kbps</option>
-                          <option value="10000">10000 kbps</option>
-                          <option value="12000">12000 kbps</option>
-                          <option value="15000">15000 kbps</option>
-                          <option value="20000">20000 kbps</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Frame Rate</label>
-                        <select name="fps" id="fpsSelect"
-                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
-                          <option value="30" selected>30 FPS</option>
-                          <option value="60">60 FPS</option>
-                          <option value="120">120 FPS</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Resolution</label>
-                        <select id="resolutionSelect"
-                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
-                          <option value="720" selected data-horizontal="1280x720" data-vertical="720x1280">720p HD
-                          </option>
-                          <option value="1080" data-horizontal="1920x1080" data-vertical="1080x1920">1080p Full HD
-                          </option>
-                          <option value="1440" data-horizontal="2560x1440" data-vertical="1440x2560">1440p QHD</option>
-                          <option value="2160" data-horizontal="3840x2160" data-vertical="2160x3840">2160p 4K</option>
-                        </select>
-                        <div class="text-xs text-gray-500 mt-1">
-                          <span id="currentResolution">1280x720</span>
+                    <div class="pt-2 border-t border-gray-700">
+                      <button type="button" id="advancedSettingsToggle"
+                        class="flex items-center justify-between w-full text-left">
+                        <div class="flex items-center">
+                          <span class="text-sm font-medium text-white">Advanced Settings</span>
+                          <div class="relative ml-2 group">
+                            <i class="ti ti-info-circle text-gray-400 hover:text-primary"></i>
+                            <div
+                              class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2 bg-dark-600 text-xs text-gray-200 rounded-md shadow-lg z-10">
+                              <div class="text-center">Menggunakan advanced settings, proses streaming akan menjadi
+                                lebih
+                                berat karena ada proses re-encoding video</div>
+                              <div
+                                class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-dark-600">
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Orientation</label>
-                        <div class="flex gap-2 h-[42px]">
-                          <button type="button" onclick="setVideoOrientation('horizontal')"
-                            class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors active-orientation">
-                            <i class="ti ti-rectangle text-sm mr-1"></i>
-                            <span class="text-xs">Landscape</span>
-                          </button>
-                          <button type="button" onclick="setVideoOrientation('vertical')"
-                            class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors">
-                            <i class="ti ti-rectangle-vertical text-sm mr-1"></i>
-                            <span class="text-xs">Portrait</span>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-
-            <div id="youtubeStreamForm" class="hidden">
-              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="space-y-4">
-                  <div>
-                    <label class="text-sm font-medium text-white block mb-2">Select Video</label>
-                    <div class="relative">
-                      <button type="button" onclick="toggleYoutubeVideoSelector()"
-                        class="w-full flex items-center justify-between px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-left">
-                        <span class="text-sm text-gray-300" id="ytSelectedVideo">Choose a video...</span>
-                        <i class="ti ti-chevron-down text-gray-400"></i>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                          <input type="checkbox" id="advancedSettingsCheckbox" class="sr-only peer">
+                          <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
+                          <div
+                            class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
+                          </div>
+                        </label>
                       </button>
-                      <div id="ytVideoSelectorDropdown" class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
-                        <div class="p-2 border-b border-gray-600/50">
-                          <div class="relative">
-                            <input type="text" id="ytVideoSearchInput" class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700" placeholder="Search videos...">
-                            <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                      <div id="advancedSettingsContent" class="hidden space-y-6 pt-4">
+                        <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-3 mb-4">
+                          <div class="flex items-start">
+                            <i class="ti ti-alert-triangle text-yellow-500 text-sm mt-0.5 mr-2 flex-shrink-0"></i>
+                            <div>
+                              <p class="text-yellow-200 text-xs font-medium">Advanced Settings Warning</p>
+                              <p class="text-yellow-300/80 text-xs mt-1">Using advanced settings will make the streaming
+                                process more resource-intensive</p>
+                            </div>
                           </div>
                         </div>
-                        <div id="ytVideoListContainer" class="p-2 space-y-1 max-h-60 overflow-y-auto"></div>
+                        <div class="space-y-4">
+                          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                              <label class="text-xs text-gray-400 block mb-1">Bitrate</label>
+                              <select name="bitrate" id="bitrateSelect"
+                                class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
+                                <option value="2500" selected>2500 kbps</option>
+                                <option value="4000">4000 kbps</option>
+                                <option value="6000">6000 kbps</option>
+                                <option value="8000">8000 kbps</option>
+                                <option value="10000">10000 kbps</option>
+                                <option value="12000">12000 kbps</option>
+                                <option value="15000">15000 kbps</option>
+                                <option value="20000">20000 kbps</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label class="text-xs text-gray-400 block mb-1">Frame Rate</label>
+                              <select name="fps" id="fpsSelect"
+                                class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
+                                <option value="30" selected>30 FPS</option>
+                                <option value="60">60 FPS</option>
+                                <option value="120">120 FPS</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label class="text-xs text-gray-400 block mb-1">Resolution</label>
+                              <select id="resolutionSelect"
+                                class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
+                                <option value="720" selected data-horizontal="1280x720" data-vertical="720x1280">720p HD
+                                </option>
+                                <option value="1080" data-horizontal="1920x1080" data-vertical="1080x1920">1080p Full HD
+                                </option>
+                                <option value="1440" data-horizontal="2560x1440" data-vertical="1440x2560">1440p QHD
+                                </option>
+                                <option value="2160" data-horizontal="3840x2160" data-vertical="2160x3840">2160p 4K
+                                </option>
+                              </select>
+                              <div class="text-xs text-gray-500 mt-1">
+                                <span id="currentResolution">1280x720</span>
+                              </div>
+                            </div>
+                            <div>
+                              <label class="text-xs text-gray-400 block mb-1">Orientation</label>
+                              <div class="flex gap-2 h-[42px]">
+                                <button type="button" onclick="setVideoOrientation('horizontal')"
+                                  class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors active-orientation">
+                                  <i class="ti ti-rectangle text-sm mr-1"></i>
+                                  <span class="text-xs">Landscape</span>
+                                </button>
+                                <button type="button" onclick="setVideoOrientation('vertical')"
+                                  class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors">
+                                  <i class="ti ti-rectangle-vertical text-sm mr-1"></i>
+                                  <span class="text-xs">Portrait</span>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <input type="hidden" id="ytSelectedVideoId" name="ytVideoId" value="">
-
-                  <div>
-                    <label class="text-sm font-medium text-white block mb-2">Stream Title</label>
-                    <input type="text" id="ytStreamTitle" name="ytStreamTitle" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter stream title...">
-                  </div>
-
-                  <div>
-                    <label class="text-sm font-medium text-white block mb-2">Description</label>
-                    <textarea id="ytDescription" name="ytDescription" rows="3" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary resize-y min-h-[60px]" placeholder="Enter stream description..."></textarea>
-                  </div>
-
-                  <div class="grid grid-cols-2 gap-4">
-                    <div>
-                      <label class="text-sm font-medium text-white block mb-2">Privacy</label>
-                      <select id="ytPrivacy" name="ytPrivacy" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
-                        <option value="public">Public</option>
-                        <option value="unlisted" selected>Unlisted</option>
-                        <option value="private">Private</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label class="text-sm font-medium text-white block mb-2">Category</label>
-                      <select id="ytCategory" name="ytCategory" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
-                        <option value="22">People & Blogs</option>
-                        <option value="20">Gaming</option>
-                        <option value="24">Entertainment</option>
-                        <option value="10">Music</option>
-                        <option value="28">Science & Technology</option>
-                        <option value="17">Sports</option>
-                        <option value="27">Education</option>
-                        <option value="26">Howto & Style</option>
-                        <option value="19">Travel & Events</option>
-                        <option value="1">Film & Animation</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label class="text-sm font-medium text-white block mb-2">Tags</label>
-                    <div id="ytTagsContainer" class="relative flex flex-wrap gap-2 p-2 bg-dark-700 border border-gray-600 rounded-lg min-h-[42px]">
-                      <input type="text" id="ytTagsInput" class="flex-1 min-w-[100px] bg-transparent border-none outline-none text-white text-sm placeholder-gray-500" placeholder="Type and press Enter...">
-                      <button type="button" onclick="clearYtTags()" class="absolute top-0 right-2 text-gray-400 hover:text-white transition-colors" title="Clear all tags">
-                        <i class="ti ti-x text-sm"></i>
-                      </button>
-                    </div>
-                    <input type="hidden" id="ytTags" name="ytTags" value="">
-                    <div class="flex items-center justify-between mt-1">
-                      <p class="text-xs text-gray-500">Press Enter or comma to add tag</p>
-                      <span id="ytTagsCharCount" class="text-xs text-gray-500">0/500</span>
                     </div>
                   </div>
                 </div>
 
-                <div class="space-y-4">
-                  <div>
-                    <label class="text-sm font-medium text-white block mb-2">Select Channel</label>
-                    <div class="bg-dark-900 rounded-lg p-3 border border-gray-700">
-                      <div class="flex items-center justify-between gap-3">
-                        <div class="flex items-center gap-3 min-w-0">
-                          <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-700 flex-shrink-0">
-                            <img id="ytChannelThumb" src="<%= typeof youtubeChannelThumbnail !== 'undefined' ? youtubeChannelThumbnail : '' %>" alt="Channel" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-red-600\'><i class=\'ti ti-brand-youtube text-white text-xl\'></i></div>'">
-                          </div>
-                          <div class="min-w-0">
-                            <p id="ytChannelNameDisplay" class="font-medium text-white text-sm truncate"><%= typeof youtubeChannelName !== 'undefined' ? youtubeChannelName : 'YouTube Channel' %></p>
-                            <p id="ytChannelSubsDisplay" class="text-xs text-gray-400"><%= typeof youtubeSubscriberCount !== 'undefined' ? Number(youtubeSubscriberCount).toLocaleString() : '0' %> subscribers</p>
+                <div id="youtubeStreamForm" class="hidden">
+                  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="space-y-4">
+                      <div>
+                        <label class="text-sm font-medium text-white block mb-2">Select Video</label>
+                        <div class="relative">
+                          <button type="button" onclick="toggleYoutubeVideoSelector()"
+                            class="w-full flex items-center justify-between px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-left">
+                            <span class="text-sm text-gray-300" id="ytSelectedVideo">Choose a video...</span>
+                            <i class="ti ti-chevron-down text-gray-400"></i>
+                          </button>
+                          <div id="ytVideoSelectorDropdown"
+                            class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
+                            <div class="p-2 border-b border-gray-600/50">
+                              <div class="relative">
+                                <input type="text" id="ytVideoSearchInput"
+                                  class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700"
+                                  placeholder="Search videos...">
+                                <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                              </div>
+                            </div>
+                            <div id="ytVideoListContainer" class="p-2 space-y-1 max-h-60 overflow-y-auto"></div>
                           </div>
                         </div>
-                        <% if (typeof youtubeChannels !== 'undefined' && youtubeChannels.length > 1) { %>
-                        <button type="button" onclick="toggleChannelSelector()" class="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors text-sm flex-shrink-0">
-                          <i class="ti ti-switch-horizontal mr-1"></i>Change
-                        </button>
-                        <% } %>
                       </div>
-                      <% if (typeof youtubeChannels !== 'undefined' && youtubeChannels.length > 1) { %>
-                      <div id="channelSelectorDropdown" class="hidden mt-3 pt-3 border-t border-gray-700 space-y-2">
-                        <% youtubeChannels.forEach(function(channel) { %>
-                        <button type="button" onclick="selectYtChannel('<%= channel.id %>', '<%= channel.channel_name %>', '<%= channel.channel_thumbnail %>', '<%= channel.subscriber_count %>')"
-                          class="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition-colors text-left channel-option <%= channel.is_default ? 'bg-gray-700/50 selected-channel' : '' %>" data-channel-id="<%= channel.id %>">
-                          <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-600 flex-shrink-0">
-                            <img src="<%= channel.channel_thumbnail %>" alt="" class="w-full h-full object-cover" onerror="this.style.display='none'">
+                      <input type="hidden" id="ytSelectedVideoId" name="ytVideoId" value="">
+
+                      <div>
+                        <label class="text-sm font-medium text-white block mb-2">Stream Title</label>
+                        <input type="text" id="ytStreamTitle" name="ytStreamTitle"
+                          class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                          placeholder="Enter stream title...">
+                      </div>
+
+                      <div>
+                        <label class="text-sm font-medium text-white block mb-2">Description</label>
+                        <textarea id="ytDescription" name="ytDescription" rows="3"
+                          class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary resize-y min-h-[60px]"
+                          placeholder="Enter stream description..."></textarea>
+                      </div>
+
+                      <div class="grid grid-cols-2 gap-4">
+                        <div>
+                          <label class="text-sm font-medium text-white block mb-2">Privacy</label>
+                          <select id="ytPrivacy" name="ytPrivacy"
+                            class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
+                            <option value="public">Public</option>
+                            <option value="unlisted" selected>Unlisted</option>
+                            <option value="private">Private</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label class="text-sm font-medium text-white block mb-2">Category</label>
+                          <select id="ytCategory" name="ytCategory"
+                            class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
+                            <option value="22">People & Blogs</option>
+                            <option value="20">Gaming</option>
+                            <option value="24">Entertainment</option>
+                            <option value="10">Music</option>
+                            <option value="28">Science & Technology</option>
+                            <option value="17">Sports</option>
+                            <option value="27">Education</option>
+                            <option value="26">Howto & Style</option>
+                            <option value="19">Travel & Events</option>
+                            <option value="1">Film & Animation</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div>
+                        <label class="text-sm font-medium text-white block mb-2">Tags</label>
+                        <div id="ytTagsContainer"
+                          class="relative flex flex-wrap gap-2 p-2 bg-dark-700 border border-gray-600 rounded-lg min-h-[42px]">
+                          <input type="text" id="ytTagsInput"
+                            class="flex-1 min-w-[100px] bg-transparent border-none outline-none text-white text-sm placeholder-gray-500"
+                            placeholder="Type and press Enter...">
+                          <button type="button" onclick="clearYtTags()"
+                            class="absolute top-0 right-2 text-gray-400 hover:text-white transition-colors"
+                            title="Clear all tags">
+                            <i class="ti ti-x text-sm"></i>
+                          </button>
+                        </div>
+                        <input type="hidden" id="ytTags" name="ytTags" value="">
+                        <div class="flex items-center justify-between mt-1">
+                          <p class="text-xs text-gray-500">Press Enter or comma to add tag</p>
+                          <span id="ytTagsCharCount" class="text-xs text-gray-500">0/500</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="space-y-4">
+                      <div>
+                        <label class="text-sm font-medium text-white block mb-2">Select Channel</label>
+                        <div class="bg-dark-900 rounded-lg p-3 border border-gray-700">
+                          <div class="flex items-center justify-between gap-3">
+                            <div class="flex items-center gap-3 min-w-0">
+                              <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-700 flex-shrink-0">
+                                <img id="ytChannelThumb"
+                                  src="<%= typeof youtubeChannelThumbnail !== 'undefined' ? youtubeChannelThumbnail : '' %>"
+                                  alt="Channel" class="w-full h-full object-cover"
+                                  onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-red-600\'><i class=\'ti ti-brand-youtube text-white text-xl\'></i></div>'">
+                              </div>
+                              <div class="min-w-0">
+                                <p id="ytChannelNameDisplay" class="font-medium text-white text-sm truncate">
+                                  <%= typeof youtubeChannelName !=='undefined' ? youtubeChannelName : 'YouTube Channel'
+                                    %>
+                                </p>
+                                <p id="ytChannelSubsDisplay" class="text-xs text-gray-400">
+                                  <%= typeof youtubeSubscriberCount !=='undefined' ?
+                                    Number(youtubeSubscriberCount).toLocaleString() : '0' %> subscribers
+                                </p>
+                              </div>
+                            </div>
+                            <% if (typeof youtubeChannels !=='undefined' && youtubeChannels.length> 1) { %>
+                              <button type="button" onclick="toggleChannelSelector()"
+                                class="px-3 py-1.5 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors text-sm flex-shrink-0">
+                                <i class="ti ti-switch-horizontal mr-1"></i>Change
+                              </button>
+                              <% } %>
                           </div>
-                          <div class="min-w-0 flex-1">
-                            <p class="text-sm text-white truncate"><%= channel.channel_name %></p>
-                            <p class="text-xs text-gray-400"><%= Number(channel.subscriber_count || 0).toLocaleString() %> subs</p>
+                          <% if (typeof youtubeChannels !=='undefined' && youtubeChannels.length> 1) { %>
+                            <div id="channelSelectorDropdown"
+                              class="hidden mt-3 pt-3 border-t border-gray-700 space-y-2">
+                              <% youtubeChannels.forEach(function(channel) { %>
+                                <button type="button"
+                                  onclick="selectYtChannel('<%= channel.id %>', '<%= channel.channel_name %>', '<%= channel.channel_thumbnail %>', '<%= channel.subscriber_count %>')"
+                                  class="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-gray-700 transition-colors text-left channel-option <%= channel.is_default ? 'bg-gray-700/50 selected-channel' : '' %>"
+                                  data-channel-id="<%= channel.id %>">
+                                  <div class="w-8 h-8 rounded-full overflow-hidden bg-gray-600 flex-shrink-0">
+                                    <img src="<%= channel.channel_thumbnail %>" alt=""
+                                      class="w-full h-full object-cover" onerror="this.style.display='none'">
+                                  </div>
+                                  <div class="min-w-0 flex-1">
+                                    <p class="text-sm text-white truncate">
+                                      <%= channel.channel_name %>
+                                    </p>
+                                    <p class="text-xs text-gray-400">
+                                      <%= Number(channel.subscriber_count || 0).toLocaleString() %> subs
+                                    </p>
+                                  </div>
+                                  <% if (channel.is_default) { %>
+                                    <span class="text-xs text-primary">Default</span>
+                                    <% } %>
+                                </button>
+                                <% }); %>
+                            </div>
+                            <% } %>
+                        </div>
+                        <input type="hidden" id="ytSelectedChannelId" name="ytChannelId"
+                          value="<%= typeof youtubeChannels !== 'undefined' && youtubeChannels.length > 0 ? (youtubeChannels.find(c => c.is_default) || youtubeChannels[0]).id : '' %>">
+                      </div>
+
+                      <div>
+                        <label class="text-sm font-medium text-white block mb-2">Thumbnail</label>
+                        <div
+                          class="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center hover:border-primary transition-colors cursor-pointer"
+                          onclick="document.getElementById('ytThumbnail').click()">
+                          <input type="file" id="ytThumbnail" name="ytThumbnail" accept="image/*" class="hidden">
+                          <div id="ytThumbnailPreview" class="hidden">
+                            <img id="ytThumbnailImg" src="" alt="Thumbnail" class="max-h-32 mx-auto rounded">
                           </div>
-                          <% if (channel.is_default) { %>
-                          <span class="text-xs text-primary">Default</span>
-                          <% } %>
-                        </button>
-                        <% }); %>
+                          <div id="ytThumbnailPlaceholder">
+                            <i class="ti ti-photo text-3xl text-gray-500 mb-2"></i>
+                            <p class="text-sm text-gray-400">Click to upload thumbnail</p>
+                            <p class="text-xs text-gray-500">Recommended: 1280x720</p>
+                          </div>
+                        </div>
                       </div>
-                      <% } %>
-                    </div>
-                    <input type="hidden" id="ytSelectedChannelId" name="ytChannelId" value="<%= typeof youtubeChannels !== 'undefined' && youtubeChannels.length > 0 ? (youtubeChannels.find(c => c.is_default) || youtubeChannels[0]).id : '' %>">
-                  </div>
 
-                  <div>
-                    <label class="text-sm font-medium text-white block mb-2">Thumbnail</label>
-                    <div class="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center hover:border-primary transition-colors cursor-pointer" onclick="document.getElementById('ytThumbnail').click()">
-                      <input type="file" id="ytThumbnail" name="ytThumbnail" accept="image/*" class="hidden">
-                      <div id="ytThumbnailPreview" class="hidden">
-                        <img id="ytThumbnailImg" src="" alt="Thumbnail" class="max-h-32 mx-auto rounded">
+                      <div class="h-[42px] flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                          <label class="text-sm text-gray-300">Enable Schedule</label>
+                          <span id="ytServerTimeDisplay"
+                            class="bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">loading...</span>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                          <input type="checkbox" id="ytEnableSchedule" class="sr-only peer">
+                          <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
+                          <div
+                            class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
+                          </div>
+                        </label>
                       </div>
-                      <div id="ytThumbnailPlaceholder">
-                        <i class="ti ti-photo text-3xl text-gray-500 mb-2"></i>
-                        <p class="text-sm text-gray-400">Click to upload thumbnail</p>
-                        <p class="text-xs text-gray-500">Recommended: 1280x720</p>
+
+                      <div id="ytScheduleSettings" class="hidden space-y-4">
+                        <div>
+                          <label class="text-xs text-gray-400 block mb-1">Start Time</label>
+                          <input type="datetime-local" id="ytScheduleStart" name="ytScheduleStart"
+                            class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
+                        </div>
+                        <div>
+                          <label class="text-xs text-gray-400 mb-1 flex items-center">
+                            <span>End Time</span>
+                            <span id="ytDurationBadge"
+                              class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden">00:00</span>
+                          </label>
+                          <input type="datetime-local" id="ytScheduleEnd" name="ytScheduleEnd"
+                            class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
+                        </div>
                       </div>
-                    </div>
-                  </div>
-
-                  <div class="h-[42px] flex items-center justify-between">
-                    <div class="flex items-center gap-2">
-                      <label class="text-sm text-gray-300">Enable Schedule</label>
-                      <span id="ytServerTimeDisplay" class="bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">loading...</span>
-                    </div>
-                    <label class="relative inline-flex items-center cursor-pointer">
-                      <input type="checkbox" id="ytEnableSchedule" class="sr-only peer">
-                      <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
-                      <div class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5"></div>
-                    </label>
-                  </div>
-
-                  <div id="ytScheduleSettings" class="hidden space-y-4">
-                    <div>
-                      <label class="text-xs text-gray-400 block mb-1">Start Time</label>
-                      <input type="datetime-local" id="ytScheduleStart" name="ytScheduleStart" class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
-                    </div>
-                    <div>
-                      <label class="text-xs text-gray-400 mb-1 flex items-center">
-                        <span>End Time</span>
-                        <span id="ytDurationBadge" class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden">00:00</span>
-                      </label>
-                      <input type="datetime-local" id="ytScheduleEnd" name="ytScheduleEnd" class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
 
           </form>
         </div>
@@ -666,7 +726,8 @@
         <div class="flex-shrink-0 flex items-center justify-between p-4 sm:px-6 sm:py-4 border-b border-gray-700">
           <h3 class="text-lg font-semibold">Edit Stream</h3>
           <div class="flex items-center gap-2">
-            <button type="button" onclick="openTipsStreaming()" class="flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors shadow-sm">
+            <button type="button" onclick="openTipsStreaming()"
+              class="flex items-center gap-2 px-3 py-1.5 bg-green-600 hover:bg-green-500 text-white rounded-lg transition-colors shadow-sm">
               <i class="ti ti-bulb"></i>
               <span class="text-sm">Tips</span>
             </button>
@@ -683,11 +744,13 @@
 
             <div id="editStreamModeSelector" class="hidden">
               <div class="flex gap-2 p-1 bg-dark-900 rounded-lg">
-                <button type="button" id="editManualModeBtn" onclick="setEditStreamMode('manual')" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors bg-primary text-white">
+                <button type="button" id="editManualModeBtn" onclick="setEditStreamMode('manual')"
+                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors bg-primary text-white">
                   <i class="ti ti-settings"></i>
                   <span class="text-sm font-medium">Manual (RTMP)</span>
                 </button>
-                <button type="button" id="editAutoModeBtn" onclick="setEditStreamMode('auto')" class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700">
+                <button type="button" id="editAutoModeBtn" onclick="setEditStreamMode('auto')"
+                  class="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700">
                   <i class="ti ti-brand-youtube"></i>
                   <span class="text-sm font-medium">YouTube API</span>
                 </button>
@@ -695,260 +758,264 @@
             </div>
 
             <div id="editManualStreamForm">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              <div class="space-y-4">
-                <div class="relative">
-                  <label class="text-sm font-medium text-white block mb-2">Select Video</label>
-                  <div class="relative">
-                    <button type="button" onclick="toggleEditVideoSelector()"
-                      class="w-full flex items-center justify-between px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-left">
-                      <span class="text-sm text-gray-300" id="editSelectedVideo">Choose a video...</span>
-                      <i class="ti ti-chevron-down text-gray-400"></i>
-                    </button>
-                    <div id="editVideoSelectorDropdown"
-                      class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
-                      <div class="p-2 border-b border-gray-600/50">
-                        <div class="relative">
-                          <input type="text" id="editVideoSearchInput"
-                            class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700"
-                            placeholder="Search videos...">
-                          <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                        </div>
-                      </div>
-                      <div id="editVideoListContainer" class="p-2 space-y-1 max-h-60 overflow-y-auto">
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="lg:hidden bg-dark-900 rounded-lg overflow-hidden">
-                  <div class="aspect-video bg-dark-900">
-                    <div id="editVideoPreviewMobile" class="hidden w-full h-full">
-                      <video id="edit-native-preview-mobile" class="native-video-player"
-                        controls preload="metadata">
-                        <source src="" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    <div id="editEmptyPreviewMobile" class="h-full flex flex-col items-center justify-center">
-                      <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
-                      <p class="text-sm text-gray-500">Select a video to preview</p>
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <label class="text-sm font-medium text-white block mb-2">Stream Title</label>
-                  <input type="text"
-                    class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
-                    placeholder="Enter stream title..." name="streamTitle" id="editStreamTitle" required>
-                </div>
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="space-y-4">
-                  <label class="text-sm font-medium text-white block mb-3">Stream Configuration</label>
-                  <div class="space-y-3">
+                  <div class="relative">
+                    <label class="text-sm font-medium text-white block mb-2">Select Video</label>
                     <div class="relative">
-                      <input type="text" id="editRtmpUrl" name="rtmpUrl"
-                        class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
-                        placeholder="RTMP URL" required>
-                      <i class="ti ti-link absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                      <button type="button" id="editPlatformSelector"
-                        class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-dark-600 transition-colors"
-                        aria-label="Select platform">
-                        <i class="ti ti-list-check text-gray-400 hover:text-primary"></i>
+                      <button type="button" onclick="toggleEditVideoSelector()"
+                        class="w-full flex items-center justify-between px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg hover:border-primary focus:border-primary focus:ring-1 focus:ring-primary transition-colors text-left">
+                        <span class="text-sm text-gray-300" id="editSelectedVideo">Choose a video...</span>
+                        <i class="ti ti-chevron-down text-gray-400"></i>
                       </button>
-                      <div id="editPlatformDropdown"
-                        class="hidden absolute z-10 right-0 mt-1 w-48 bg-dark-700 rounded-lg border border-gray-600 shadow-lg overflow-hidden">
-                        <div class="py-1">
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://a.rtmp.youtube.com/live2">
-                            <i class="ti ti-brand-youtube text-red-500 text-base mr-2"></i>
-                            <span class="text-sm">YouTube</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://live-api-s.facebook.com:443/rtmp">
-                            <i class="ti ti-brand-facebook text-blue-500 text-base mr-2"></i>
-                            <span class="text-sm">Facebook</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://ingest.global.live.prod.tiktok.com/live">
-                            <i class="ti ti-brand-tiktok text-black text-base mr-2"></i>
-                            <span class="text-sm">TikTok</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://live.shopee.co.id/live">
-                            <i class="ti ti-brand-shopee text-orange-500 text-base mr-2"></i>
-                            <span class="text-sm">Shopee Live</span>
-                          </button>
-                          <button type="button"
-                            class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600" 
-                            data-url="rtmps://live.twitch.tv/live">
-                            <i class="ti ti-brand-twitch text-purple-500 text-base mr-2"></i>
-                            <span class="text-sm">Twitch</span>
-                          </button>
+                      <div id="editVideoSelectorDropdown"
+                        class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
+                        <div class="p-2 border-b border-gray-600/50">
+                          <div class="relative">
+                            <input type="text" id="editVideoSearchInput"
+                              class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700"
+                              placeholder="Search videos...">
+                            <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                          </div>
                         </div>
-                      </div>
-                    </div>
-                    <div class="relative">
-                      <input type="password" id="editStreamKey" name="streamKey"
-                        class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
-                        placeholder="Stream Key" required>
-                      <i class="ti ti-key absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-                      <button type="button" onclick="toggleEditStreamKeyVisibility()"
-                        class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
-                        <i class="ti ti-eye" id="editStreamKeyToggle"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="hidden lg:block">
-                <div class="overflow-hidden h-full">
-                  <div class="aspect-video rounded-lg bg-dark-900">
-                    <div id="editVideoPreview" class="hidden w-full h-full">
-                      <video id="edit-native-preview-desktop"
-                        class="native-video-player rounded-lg" controls preload="metadata">
-                        <source src="" type="video/mp4">
-                        Your browser does not support the video tag.
-                      </video>
-                    </div>
-                    <div id="editEmptyPreview" class="h-full flex flex-col items-center justify-center">
-                      <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
-                      <p class="text-sm text-gray-500">Select a video to preview</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="space-y-2 mt-4 mb-6">
-              <div class="flex flex-col sm:flex-row sm:items-center">
-                <label class="text-sm font-medium text-white">Schedule Settings</label>
-                <span id="editServerTimeDisplay"
-                  class="mt-1 sm:mt-0 sm:ml-2 block sm:inline-block bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">
-                  Server time: loading...
-                </span>
-              </div>
-              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div class="h-[42px] flex items-center justify-between">
-                  <label class="text-sm text-gray-300">Loop Video</label>
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" name="loopVideo" id="editLoopVideo" class="sr-only peer" checked>
-                    <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
-                    <div
-                      class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
-                    </div>
-                  </label>
-                </div>
-                <div>
-                  <label class="text-xs text-gray-400 block mb-1">Start Stream</label>
-                  <input type="datetime-local" id="editScheduleStartTime" name="scheduleStartTime"
-                    class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
-                </div>
-                <div>
-                  <label class="text-xs text-gray-400 mb-1 flex items-end">
-                    <span>End Stream</span>
-                    <span id="editDurationBadge" class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden leading-none">00:00</span>
-                  </label>
-                  <input type="datetime-local" id="editScheduleEndTime" name="scheduleEndTime"
-                    class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
-                </div>
-              </div>
-            </div>
-            <div class="space-y-4">
-              <div class="pt-2 border-t border-gray-700">
-                <button type="button" id="editAdvancedSettingsToggle"
-                  class="flex items-center justify-between w-full text-left">
-                  <div class="flex items-center">
-                    <span class="text-sm font-medium text-white">Advanced Settings</span>
-                    <div class="relative ml-2 group">
-                      <i class="ti ti-info-circle text-gray-400 hover:text-primary"></i>
-                      <div
-                        class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2 bg-dark-600 text-xs text-gray-200 rounded-md shadow-lg z-10">
-                        <div class="text-center">Menggunakan advanced settings, proses streaming akan menjadi lebih
-                          berat karena ada proses re-encoding video</div>
-                        <div
-                          class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-dark-600">
+                        <div id="editVideoListContainer" class="p-2 space-y-1 max-h-60 overflow-y-auto">
                         </div>
                       </div>
                     </div>
                   </div>
-                  <label class="relative inline-flex items-center cursor-pointer">
-                    <input type="checkbox" id="editAdvancedSettingsCheckbox" class="sr-only peer">
-                    <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
-                    <div class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5"></div>
-                  </label>
-                </button>
-                <div id="editAdvancedSettingsContent" class="hidden space-y-6 pt-4">
-                  <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-3 mb-4">
-                    <div class="flex items-start">
-                      <i class="ti ti-alert-triangle text-yellow-500 text-sm mt-0.5 mr-2 flex-shrink-0"></i>
-                      <div>
-                        <p class="text-yellow-200 text-xs font-medium">Advanced Settings Warning</p>
-                        <p class="text-yellow-300/80 text-xs mt-1">Using advanced settings will make the streaming process more resource-intensive</p>
+                  <div class="lg:hidden bg-dark-900 rounded-lg overflow-hidden">
+                    <div class="aspect-video bg-dark-900">
+                      <div id="editVideoPreviewMobile" class="hidden w-full h-full">
+                        <video id="edit-native-preview-mobile" class="native-video-player" controls preload="metadata">
+                          <source src="" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <div id="editEmptyPreviewMobile" class="h-full flex flex-col items-center justify-center">
+                        <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
+                        <p class="text-sm text-gray-500">Select a video to preview</p>
                       </div>
                     </div>
+                  </div>
+                  <div>
+                    <label class="text-sm font-medium text-white block mb-2">Stream Title</label>
+                    <input type="text"
+                      class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                      placeholder="Enter stream title..." name="streamTitle" id="editStreamTitle" required>
                   </div>
                   <div class="space-y-4">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Bitrate</label>
-                        <select name="bitrate" id="editBitrate"
-                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
-                          <option value="2500">2500 kbps</option>
-                          <option value="4000">4000 kbps</option>
-                          <option value="6000">6000 kbps</option>
-                          <option value="8000">8000 kbps</option>
-                          <option value="10000">10000 kbps</option>
-                          <option value="12000">12000 kbps</option>
-                          <option value="15000">15000 kbps</option>
-                          <option value="20000">20000 kbps</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Frame Rate</label>
-                        <select name="fps" id="editFps"
-                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
-                          <option value="30">30 FPS</option>
-                          <option value="60">60 FPS</option>
-                          <option value="120">120 FPS</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Resolution</label>
-                        <select id="editResolutionSelect"
-                          class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
-                          <option value="720" selected data-horizontal="1280x720" data-vertical="720x1280">720p HD
-                          </option>
-                          <option value="1080" data-horizontal="1920x1080" data-vertical="1080x1920">1080p Full HD
-                          </option>
-                          <option value="1440" data-horizontal="2560x1440" data-vertical="1440x2560">1440p QHD</option>
-                          <option value="2160" data-horizontal="3840x2160" data-vertical="2160x3840">2160p 4K</option>
-                        </select>
-                        <div class="text-xs text-gray-500 mt-1">
-                          <span id="editCurrentResolution">1280x720</span>
+                    <label class="text-sm font-medium text-white block mb-3">Stream Configuration</label>
+                    <div class="space-y-3">
+                      <div class="relative">
+                        <input type="text" id="editRtmpUrl" name="rtmpUrl"
+                          class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                          placeholder="RTMP URL" required>
+                        <i class="ti ti-link absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <button type="button" id="editPlatformSelector"
+                          class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full hover:bg-dark-600 transition-colors"
+                          aria-label="Select platform">
+                          <i class="ti ti-list-check text-gray-400 hover:text-primary"></i>
+                        </button>
+                        <div id="editPlatformDropdown"
+                          class="hidden absolute z-10 right-0 mt-1 w-48 bg-dark-700 rounded-lg border border-gray-600 shadow-lg overflow-hidden">
+                          <div class="py-1">
+                            <button type="button"
+                              class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                              data-url="rtmps://a.rtmp.youtube.com/live2">
+                              <i class="ti ti-brand-youtube text-red-500 text-base mr-2"></i>
+                              <span class="text-sm">YouTube</span>
+                            </button>
+                            <button type="button"
+                              class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                              data-url="rtmps://live-api-s.facebook.com:443/rtmp">
+                              <i class="ti ti-brand-facebook text-blue-500 text-base mr-2"></i>
+                              <span class="text-sm">Facebook</span>
+                            </button>
+                            <button type="button"
+                              class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                              data-url="rtmps://ingest.global.live.prod.tiktok.com/live">
+                              <i class="ti ti-brand-tiktok text-black text-base mr-2"></i>
+                              <span class="text-sm">TikTok</span>
+                            </button>
+                            <button type="button"
+                              class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                              data-url="rtmps://live.shopee.co.id/live">
+                              <i class="ti ti-brand-shopee text-orange-500 text-base mr-2"></i>
+                              <span class="text-sm">Shopee Live</span>
+                            </button>
+                            <button type="button"
+                              class="platform-option w-full flex items-center px-4 py-2 hover:bg-dark-600"
+                              data-url="rtmps://live.twitch.tv/live">
+                              <i class="ti ti-brand-twitch text-purple-500 text-base mr-2"></i>
+                              <span class="text-sm">Twitch</span>
+                            </button>
+                          </div>
                         </div>
                       </div>
-                      <div>
-                        <label class="text-xs text-gray-400 block mb-1">Orientation</label>
-                        <div class="flex gap-2 h-[42px]">
-                          <button type="button" onclick="setEditVideoOrientation('horizontal')"
-                            class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors active-orientation">
-                            <i class="ti ti-rectangle text-sm mr-1"></i>
-                            <span class="text-xs">Landscape</span>
-                          </button>
-                          <button type="button" onclick="setEditVideoOrientation('vertical')"
-                            class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors">
-                            <i class="ti ti-rectangle-vertical text-sm mr-1"></i>
-                            <span class="text-xs">Portrait</span>
-                          </button>
+                      <div class="relative">
+                        <input type="password" id="editStreamKey" name="streamKey"
+                          class="w-full pl-10 pr-12 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                          placeholder="Stream Key" required>
+                        <i class="ti ti-key absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
+                        <button type="button" onclick="toggleEditStreamKeyVisibility()"
+                          class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white transition-colors">
+                          <i class="ti ti-eye" id="editStreamKeyToggle"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hidden lg:block">
+                  <div class="overflow-hidden h-full">
+                    <div class="aspect-video rounded-lg bg-dark-900">
+                      <div id="editVideoPreview" class="hidden w-full h-full">
+                        <video id="edit-native-preview-desktop" class="native-video-player rounded-lg" controls
+                          preload="metadata">
+                          <source src="" type="video/mp4">
+                          Your browser does not support the video tag.
+                        </video>
+                      </div>
+                      <div id="editEmptyPreview" class="h-full flex flex-col items-center justify-center">
+                        <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
+                        <p class="text-sm text-gray-500">Select a video to preview</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-2 mt-4 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center">
+                  <label class="text-sm font-medium text-white">Schedule Settings</label>
+                  <span id="editServerTimeDisplay"
+                    class="mt-1 sm:mt-0 sm:ml-2 block sm:inline-block bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">
+                    Server time: loading...
+                  </span>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div class="h-[42px] flex items-center justify-between">
+                    <label class="text-sm text-gray-300">Loop Video</label>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" name="loopVideo" id="editLoopVideo" class="sr-only peer" checked>
+                      <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
+                      <div
+                        class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
+                      </div>
+                    </label>
+                  </div>
+                  <div>
+                    <label class="text-xs text-gray-400 block mb-1">Start Stream</label>
+                    <input type="datetime-local" id="editScheduleStartTime" name="scheduleStartTime"
+                      class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
+                  </div>
+                  <div>
+                    <label class="text-xs text-gray-400 mb-1 flex items-end">
+                      <span>End Stream</span>
+                      <span id="editDurationBadge"
+                        class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden leading-none">00:00</span>
+                    </label>
+                    <input type="datetime-local" id="editScheduleEndTime" name="scheduleEndTime"
+                      class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
+                  </div>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <div class="pt-2 border-t border-gray-700">
+                  <button type="button" id="editAdvancedSettingsToggle"
+                    class="flex items-center justify-between w-full text-left">
+                    <div class="flex items-center">
+                      <span class="text-sm font-medium text-white">Advanced Settings</span>
+                      <div class="relative ml-2 group">
+                        <i class="ti ti-info-circle text-gray-400 hover:text-primary"></i>
+                        <div
+                          class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-2 bg-dark-600 text-xs text-gray-200 rounded-md shadow-lg z-10">
+                          <div class="text-center">Menggunakan advanced settings, proses streaming akan menjadi lebih
+                            berat karena ada proses re-encoding video</div>
+                          <div
+                            class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-dark-600">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <label class="relative inline-flex items-center cursor-pointer">
+                      <input type="checkbox" id="editAdvancedSettingsCheckbox" class="sr-only peer">
+                      <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
+                      <div
+                        class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
+                      </div>
+                    </label>
+                  </button>
+                  <div id="editAdvancedSettingsContent" class="hidden space-y-6 pt-4">
+                    <div class="bg-yellow-900/20 border border-yellow-600/30 rounded-lg p-3 mb-4">
+                      <div class="flex items-start">
+                        <i class="ti ti-alert-triangle text-yellow-500 text-sm mt-0.5 mr-2 flex-shrink-0"></i>
+                        <div>
+                          <p class="text-yellow-200 text-xs font-medium">Advanced Settings Warning</p>
+                          <p class="text-yellow-300/80 text-xs mt-1">Using advanced settings will make the streaming
+                            process more resource-intensive</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="space-y-4">
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label class="text-xs text-gray-400 block mb-1">Bitrate</label>
+                          <select name="bitrate" id="editBitrate"
+                            class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
+                            <option value="2500">2500 kbps</option>
+                            <option value="4000">4000 kbps</option>
+                            <option value="6000">6000 kbps</option>
+                            <option value="8000">8000 kbps</option>
+                            <option value="10000">10000 kbps</option>
+                            <option value="12000">12000 kbps</option>
+                            <option value="15000">15000 kbps</option>
+                            <option value="20000">20000 kbps</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label class="text-xs text-gray-400 block mb-1">Frame Rate</label>
+                          <select name="fps" id="editFps"
+                            class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
+                            <option value="30">30 FPS</option>
+                            <option value="60">60 FPS</option>
+                            <option value="120">120 FPS</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label class="text-xs text-gray-400 block mb-1">Resolution</label>
+                          <select id="editResolutionSelect"
+                            class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm">
+                            <option value="720" selected data-horizontal="1280x720" data-vertical="720x1280">720p HD
+                            </option>
+                            <option value="1080" data-horizontal="1920x1080" data-vertical="1080x1920">1080p Full HD
+                            </option>
+                            <option value="1440" data-horizontal="2560x1440" data-vertical="1440x2560">1440p QHD
+                            </option>
+                            <option value="2160" data-horizontal="3840x2160" data-vertical="2160x3840">2160p 4K</option>
+                          </select>
+                          <div class="text-xs text-gray-500 mt-1">
+                            <span id="editCurrentResolution">1280x720</span>
+                          </div>
+                        </div>
+                        <div>
+                          <label class="text-xs text-gray-400 block mb-1">Orientation</label>
+                          <div class="flex gap-2 h-[42px]">
+                            <button type="button" onclick="setEditVideoOrientation('horizontal')"
+                              class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors active-orientation">
+                              <i class="ti ti-rectangle text-sm mr-1"></i>
+                              <span class="text-xs">Landscape</span>
+                            </button>
+                            <button type="button" onclick="setEditVideoOrientation('vertical')"
+                              class="flex-1 flex items-center justify-center bg-dark-700 hover:bg-dark-600 border border-gray-600 rounded-lg transition-colors">
+                              <i class="ti ti-rectangle-vertical text-sm mr-1"></i>
+                              <span class="text-xs">Portrait</span>
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
             </div>
 
             <div id="editYoutubeStreamForm" class="hidden">
@@ -962,10 +1029,13 @@
                         <span class="text-sm text-gray-300" id="editYtSelectedVideo">Choose a video...</span>
                         <i class="ti ti-chevron-down text-gray-400"></i>
                       </button>
-                      <div id="editYtVideoSelectorDropdown" class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
+                      <div id="editYtVideoSelectorDropdown"
+                        class="hidden absolute z-10 mt-2 w-full bg-dark-700 rounded-lg border border-gray-600 shadow-lg">
                         <div class="p-2 border-b border-gray-600/50">
                           <div class="relative">
-                            <input type="text" id="editYtVideoSearchInput" class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700" placeholder="Search videos...">
+                            <input type="text" id="editYtVideoSearchInput"
+                              class="w-full bg-dark-800 text-white pl-8 pr-4 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary border border-gray-700"
+                              placeholder="Search videos...">
                             <i class="ti ti-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
                           </div>
                         </div>
@@ -977,18 +1047,23 @@
 
                   <div>
                     <label class="text-sm font-medium text-white block mb-2">Stream Title</label>
-                    <input type="text" id="editYtStreamTitle" name="ytStreamTitle" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary" placeholder="Enter stream title...">
+                    <input type="text" id="editYtStreamTitle" name="ytStreamTitle"
+                      class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary"
+                      placeholder="Enter stream title...">
                   </div>
 
                   <div>
                     <label class="text-sm font-medium text-white block mb-2">Description</label>
-                    <textarea id="editYtDescription" name="ytDescription" rows="3" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary resize-y min-h-[60px]" placeholder="Enter stream description..."></textarea>
+                    <textarea id="editYtDescription" name="ytDescription" rows="3"
+                      class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary resize-y min-h-[60px]"
+                      placeholder="Enter stream description..."></textarea>
                   </div>
 
                   <div class="grid grid-cols-2 gap-4">
                     <div>
                       <label class="text-sm font-medium text-white block mb-2">Privacy</label>
-                      <select id="editYtPrivacy" name="ytPrivacy" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
+                      <select id="editYtPrivacy" name="ytPrivacy"
+                        class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
                         <option value="public">Public</option>
                         <option value="unlisted" selected>Unlisted</option>
                         <option value="private">Private</option>
@@ -996,7 +1071,8 @@
                     </div>
                     <div>
                       <label class="text-sm font-medium text-white block mb-2">Category</label>
-                      <select id="editYtCategory" name="ytCategory" class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
+                      <select id="editYtCategory" name="ytCategory"
+                        class="w-full px-4 py-2.5 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary">
                         <option value="22">People & Blogs</option>
                         <option value="20">Gaming</option>
                         <option value="24">Entertainment</option>
@@ -1013,9 +1089,14 @@
 
                   <div>
                     <label class="text-sm font-medium text-white block mb-2">Tags</label>
-                    <div id="editYtTagsContainer" class="relative flex flex-wrap gap-2 p-2 bg-dark-700 border border-gray-600 rounded-lg min-h-[42px]">
-                      <input type="text" id="editYtTagsInput" class="flex-1 min-w-[100px] bg-transparent border-none outline-none text-white text-sm placeholder-gray-500" placeholder="Type and press Enter...">
-                      <button type="button" onclick="clearEditYtTags()" class="absolute top-0 right-2 text-gray-400 hover:text-white transition-colors" title="Clear all tags">
+                    <div id="editYtTagsContainer"
+                      class="relative flex flex-wrap gap-2 p-2 bg-dark-700 border border-gray-600 rounded-lg min-h-[42px]">
+                      <input type="text" id="editYtTagsInput"
+                        class="flex-1 min-w-[100px] bg-transparent border-none outline-none text-white text-sm placeholder-gray-500"
+                        placeholder="Type and press Enter...">
+                      <button type="button" onclick="clearEditYtTags()"
+                        class="absolute top-0 right-2 text-gray-400 hover:text-white transition-colors"
+                        title="Clear all tags">
                         <i class="ti ti-x text-sm"></i>
                       </button>
                     </div>
@@ -1034,23 +1115,34 @@
                       <div class="flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3 min-w-0">
                           <div class="w-10 h-10 rounded-full overflow-hidden bg-gray-700 flex-shrink-0">
-                            <img id="editYtChannelThumb" src="<%= typeof youtubeChannelThumbnail !== 'undefined' ? youtubeChannelThumbnail : '' %>" alt="Channel" class="w-full h-full object-cover" onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-red-600\'><i class=\'ti ti-brand-youtube text-white text-xl\'></i></div>'">
+                            <img id="editYtChannelThumb"
+                              src="<%= typeof youtubeChannelThumbnail !== 'undefined' ? youtubeChannelThumbnail : '' %>"
+                              alt="Channel" class="w-full h-full object-cover"
+                              onerror="this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center bg-red-600\'><i class=\'ti ti-brand-youtube text-white text-xl\'></i></div>'">
                           </div>
                           <div class="min-w-0">
-                            <p id="editYtChannelNameDisplay" class="font-medium text-white text-sm truncate"><%= typeof youtubeChannelName !== 'undefined' ? youtubeChannelName : 'YouTube Channel' %></p>
-                            <p id="editYtChannelSubsDisplay" class="text-xs text-gray-400"><%= typeof youtubeSubscriberCount !== 'undefined' ? Number(youtubeSubscriberCount).toLocaleString() : '0' %> subscribers</p>
+                            <p id="editYtChannelNameDisplay" class="font-medium text-white text-sm truncate">
+                              <%= typeof youtubeChannelName !=='undefined' ? youtubeChannelName : 'YouTube Channel' %>
+                            </p>
+                            <p id="editYtChannelSubsDisplay" class="text-xs text-gray-400">
+                              <%= typeof youtubeSubscriberCount !=='undefined' ?
+                                Number(youtubeSubscriberCount).toLocaleString() : '0' %> subscribers
+                            </p>
                           </div>
                         </div>
 
                       </div>
 
                     </div>
-                    <input type="hidden" id="editYtSelectedChannelId" name="ytChannelId" value="<%= typeof youtubeChannels !== 'undefined' && youtubeChannels.length > 0 ? (youtubeChannels.find(c => c.is_default) || youtubeChannels[0]).id : '' %>">
+                    <input type="hidden" id="editYtSelectedChannelId" name="ytChannelId"
+                      value="<%= typeof youtubeChannels !== 'undefined' && youtubeChannels.length > 0 ? (youtubeChannels.find(c => c.is_default) || youtubeChannels[0]).id : '' %>">
                   </div>
 
                   <div>
                     <label class="text-sm font-medium text-white block mb-2">Thumbnail</label>
-                    <div class="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center hover:border-primary transition-colors cursor-pointer" onclick="document.getElementById('editYtThumbnail').click()">
+                    <div
+                      class="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center hover:border-primary transition-colors cursor-pointer"
+                      onclick="document.getElementById('editYtThumbnail').click()">
                       <input type="file" id="editYtThumbnail" name="editYtThumbnail" accept="image/*" class="hidden">
                       <div id="editYtThumbnailPreview" class="hidden">
                         <img id="editYtThumbnailImg" src="" alt="Thumbnail" class="max-h-32 mx-auto rounded">
@@ -1066,26 +1158,32 @@
                   <div class="h-[42px] flex items-center justify-between">
                     <div class="flex items-center gap-2">
                       <label class="text-sm text-gray-300">Enable Schedule</label>
-                      <span id="editYtServerTimeDisplay" class="bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">loading...</span>
+                      <span id="editYtServerTimeDisplay"
+                        class="bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded">loading...</span>
                     </div>
                     <label class="relative inline-flex items-center cursor-pointer">
                       <input type="checkbox" id="editYtEnableSchedule" class="sr-only peer">
                       <div class="w-11 h-6 bg-dark-700 rounded-full peer peer-checked:bg-primary"></div>
-                      <div class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5"></div>
+                      <div
+                        class="absolute left-[2px] top-[2px] w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5">
+                      </div>
                     </label>
                   </div>
 
                   <div id="editYtScheduleSettings" class="hidden space-y-4">
                     <div>
                       <label class="text-xs text-gray-400 block mb-1">Start Time</label>
-                      <input type="datetime-local" id="editYtScheduleStart" name="ytScheduleStart" class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
+                      <input type="datetime-local" id="editYtScheduleStart" name="ytScheduleStart"
+                        class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
                     </div>
                     <div>
                       <label class="text-xs text-gray-400 mb-1 flex items-center">
                         <span>End Time</span>
-                        <span id="editYtDurationBadge" class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden">00:00</span>
+                        <span id="editYtDurationBadge"
+                          class="ml-2 bg-gray-700 text-xs text-gray-300 px-2 py-0.5 rounded hidden">00:00</span>
                       </label>
-                      <input type="datetime-local" id="editYtScheduleEnd" name="ytScheduleEnd" class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
+                      <input type="datetime-local" id="editYtScheduleEnd" name="ytScheduleEnd"
+                        class="w-full h-[42px] px-4 bg-dark-700 border border-gray-600 rounded-lg focus:border-primary focus:ring-1 focus:ring-primary text-sm [color-scheme:dark]">
                     </div>
                   </div>
                 </div>
@@ -1112,67 +1210,82 @@
       .\33xl\:grid-cols-5 {
         grid-template-columns: repeat(5, minmax(0, 1fr));
       }
+
       .\33xl\:hidden {
         display: none;
       }
+
       .\33xl\:block {
         display: block;
       }
     }
-    
+
     .native-video-player {
       background-color: #1f2937;
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
+
     .aspect-video .native-video-player {
       aspect-ratio: 16/9;
       height: auto;
     }
+
     #videoListContainer {
       scrollbar-width: thin;
       scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
     }
+
     #videoListContainer::-webkit-scrollbar {
       width: 6px;
     }
+
     #videoListContainer::-webkit-scrollbar-track {
       background: transparent;
     }
+
     #videoListContainer::-webkit-scrollbar-thumb {
       background-color: rgba(156, 163, 175, 0.3);
       border-radius: 20px;
     }
+
     #videoSearchInput::placeholder {
       color: rgba(156, 163, 175, 0.7);
     }
+
     .highlight {
       background-color: rgba(59, 130, 246, 0.2);
       padding: 0 2px;
       border-radius: 2px;
     }
+
     #platformDropdown {
       transform-origin: top right;
       transition: transform 0.2s, opacity 0.2s;
       transform: scale(0.95);
       opacity: 0;
     }
+
     #platformDropdown:not(.hidden) {
       transform: scale(1);
       opacity: 1;
     }
+
     .platform-option:hover i {
       transform: scale(1.1);
     }
+
     .platform-option i {
       transition: transform 0.2s;
     }
+
     #platformSelector {
       display: flex;
       align-items: center;
       justify-content: center;
     }
+
     #platformSelector i {
       display: flex;
       align-items: center;
@@ -1182,70 +1295,87 @@
       font-size: 1.25rem;
       line-height: 1;
     }
+
     #platformDropdown {
       transform-origin: top right;
       transition: transform 0.2s, opacity 0.2s;
       transform: scale(0.95);
       opacity: 0;
     }
+
     #platformDropdown:not(.hidden) {
       transform: scale(1);
       opacity: 1;
     }
+
     * {
       scrollbar-width: thin;
       scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
     }
+
     ::-webkit-scrollbar {
       width: 5px;
       height: 5px;
     }
+
     ::-webkit-scrollbar-track {
       background: transparent;
     }
+
     ::-webkit-scrollbar-thumb {
       background-color: rgba(156, 163, 175, 0.3);
       border-radius: 20px;
     }
+
     ::-webkit-scrollbar-thumb:hover {
       background-color: rgba(156, 163, 175, 0.5);
     }
+
     .scrollbar-hide {
       -ms-overflow-style: none;
       scrollbar-width: none;
     }
+
     .scrollbar-hide::-webkit-scrollbar {
       display: none;
     }
+
     .modal-overlay,
     .overflow-y-auto,
     .overflow-x-auto {
       scrollbar-width: thin;
       scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
     }
+
     .modal-overlay::-webkit-scrollbar,
     .overflow-y-auto::-webkit-scrollbar,
     .overflow-x-auto::-webkit-scrollbar {
       width: 5px;
       height: 5px;
     }
+
     .bg-dark-800::-webkit-scrollbar-thumb {
       background-color: rgba(156, 163, 175, 0.2);
     }
+
     .group:hover .group-hover\:block {
       display: block;
     }
+
     .group .group-hover\:block {
       transition-delay: 200ms;
     }
+
     .group:hover .group-hover\:block {
       animation: fadeIn 0.2s;
     }
+
     @keyframes fadeIn {
       from {
         opacity: 0;
         transform: translate(-50%, 5px);
       }
+
       to {
         opacity: 1;
         transform: translate(-50%, 0);
@@ -1253,15 +1383,15 @@
     }
   </style>
   <script>
-    const initialStreamsData = <%- typeof initialStreams !== 'undefined' ? initialStreams : '[]' %>;
-    const initialPaginationData = <%- typeof initialPagination !== 'undefined' ? initialPagination : '{"page":1,"limit":10,"totalCount":0,"totalPages":0}' %>;
+    const initialStreamsData = <% - typeof initialStreams !== 'undefined' ? initialStreams : '[]' %>;
+    const initialPaginationData = <% - typeof initialPagination !== 'undefined' ? initialPagination : '{"page":1,"limit":10,"totalCount":0,"totalPages":0}' %>;
     let initialDataUsed = false;
 
     function showToast(type, message) {
       const toast = document.getElementById('toast');
       const toastIcon = document.getElementById('toast-icon');
       const toastMessage = document.getElementById('toast-message');
-      
+
       if (type === 'success') {
         toastIcon.className = 'ti ti-check text-green-400 text-xl mr-2 font-loaded';
         toast.classList.add('border-l-4', 'border-green-400');
@@ -1275,10 +1405,10 @@
         toast.classList.add('border-l-4', 'border-yellow-400');
         toast.classList.remove('border-l-4', 'border-green-400', 'border-red-400');
       }
-      
+
       toastMessage.textContent = message;
       toast.classList.remove('hidden');
-      
+
       setTimeout(() => {
         toast.classList.add('hidden');
       }, 3000);
@@ -1296,7 +1426,7 @@
       document.getElementById('ytChannelThumb').src = channelThumbnail;
       document.getElementById('ytChannelNameDisplay').textContent = channelName;
       document.getElementById('ytChannelSubsDisplay').textContent = Number(subscriberCount || 0).toLocaleString() + ' subscribers';
-      
+
       document.querySelectorAll('.channel-option').forEach(opt => {
         opt.classList.remove('bg-gray-700/50', 'selected-channel');
       });
@@ -1304,7 +1434,7 @@
       if (selectedOption) {
         selectedOption.classList.add('bg-gray-700/50', 'selected-channel');
       }
-      
+
       toggleChannelSelector();
     }
 
@@ -1314,7 +1444,7 @@
       const dialog = document.createElement('div');
       dialog.id = 'custom-modal';
       dialog.className = 'fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm transition-all duration-300';
-      
+
       const themes = {
         'info': {
           icon: options.icon || 'ti-info-circle',
@@ -1349,9 +1479,9 @@
           buttonIcon: 'ti-check'
         }
       };
-      
+
       const theme = themes[options.type || 'info'];
-      
+
       dialog.innerHTML = `
         <div class="transform transition-all duration-300 opacity-0 scale-95 modal-content max-w-md w-full mx-4">
           <div class="bg-dark-800 rounded-lg shadow-xl border ${theme.border} overflow-hidden">
@@ -1377,10 +1507,10 @@
           </div>
         </div>
       `;
-      
+
       document.body.appendChild(dialog);
       document.body.classList.add('overflow-hidden');
-      
+
       setTimeout(() => {
         const modalContent = dialog.querySelector('.modal-content');
         if (modalContent) {
@@ -1388,36 +1518,36 @@
           modalContent.classList.replace('scale-95', 'scale-100');
         }
       }, 10);
-      
+
       return new Promise((resolve) => {
         document.getElementById('modal-confirm-btn').addEventListener('click', () => {
           closeModalWithAnimation(true);
         });
-        
+
         document.getElementById('modal-cancel-btn').addEventListener('click', () => {
           closeModalWithAnimation(false);
         });
-        
+
         document.addEventListener('keydown', function escapeHandler(e) {
           if (e.key === 'Escape') {
             closeModalWithAnimation(false);
             document.removeEventListener('keydown', escapeHandler);
           }
         });
-        
+
         dialog.addEventListener('click', function (e) {
           if (e.target === dialog) {
             closeModalWithAnimation(false);
           }
         });
-        
+
         function closeModalWithAnimation(confirmed) {
           const modalContent = dialog.querySelector('.modal-content');
           if (modalContent) {
             modalContent.classList.replace('opacity-100', 'opacity-0');
             modalContent.classList.replace('scale-100', 'scale-95');
           }
-          
+
           setTimeout(() => {
             document.body.classList.remove('overflow-hidden');
             dialog.remove();
@@ -1445,7 +1575,7 @@
             const videoCount = playlist.videos ? playlist.videos.length : 0;
             const playbackMode = playlist.is_shuffle ? 'Shuffle' : 'Sequential';
             const playlistMetadata = `Playlist • ${videoCount} videos • ${playbackMode}`;
-            
+
             const streamCards = document.querySelectorAll(`[data-stream-id="${streamId}"]`);
             streamCards.forEach(card => {
               const metadataElement = card.querySelector('.stream-settings-display');
@@ -1453,7 +1583,7 @@
                 metadataElement.textContent = playlistMetadata;
               }
             });
-            
+
             const tableRows = document.querySelectorAll(`tr[data-stream-id="${streamId}"]`);
             tableRows.forEach(row => {
               const metadataElement = row.querySelector('.stream-settings-display');
@@ -1513,7 +1643,7 @@
         titleElement.textContent = newTitle;
       }
     }
-    
+
     function updateSystemStats() {
       fetch('/api/system-stats')
         .then(response => response.json())
@@ -1523,14 +1653,14 @@
           document.getElementById('memory-usage').textContent = formatMemory(data.memory.used);
           document.getElementById('memory-total').textContent = ' / ' + formatMemory(data.memory.total);
           document.getElementById('memory-bar').style.width = data.memory.usagePercent + '%';
-          
+
           const cpuMobile = document.getElementById('cpu-usage-mobile');
           if (cpuMobile) cpuMobile.textContent = data.cpu.usage;
           const memMobile = document.getElementById('memory-usage-mobile');
           if (memMobile) memMobile.textContent = formatMemory(data.memory.used).replace(' ', '');
           const memTotalMobile = document.getElementById('memory-total-mobile');
           if (memTotalMobile) memTotalMobile.textContent = '/ ' + formatMemory(data.memory.total).replace(' ', '');
-          
+
           if (data.network) {
             document.getElementById('upload-speed').textContent = data.network.uploadFormatted;
             document.getElementById('download-speed').textContent = data.network.downloadFormatted;
@@ -1542,64 +1672,64 @@
             const downloadWide = document.getElementById('download-speed-wide');
             if (uploadWide) uploadWide.textContent = data.network.uploadFormatted;
             if (downloadWide) downloadWide.textContent = data.network.downloadFormatted;
-          }         
+          }
           if (data.disk) {
             const diskUsagePercent = data.disk.usagePercent;
-            
+
             document.getElementById('disk-used').textContent = data.disk.used;
             document.getElementById('disk-total').textContent = ' / ' + data.disk.total;
             const diskUsedMobile = document.getElementById('disk-used-mobile');
             const diskTotalMobile = document.getElementById('disk-total-mobile');
             if (diskUsedMobile) diskUsedMobile.textContent = data.disk.used;
             if (diskTotalMobile) diskTotalMobile.textContent = '/ ' + data.disk.total;
-            
+
             const diskUsedWide = document.getElementById('disk-used-wide');
             const diskTotalWide = document.getElementById('disk-total-wide');
             if (diskUsedWide) diskUsedWide.textContent = data.disk.used;
             if (diskTotalWide) diskTotalWide.textContent = ' / ' + data.disk.total;
-            
+
             const diskBar = document.getElementById('disk-bar');
             const diskBarWide = document.getElementById('disk-bar-wide');
-            
+
             let barColor;
             if (diskUsagePercent >= 80) {
-              barColor = 'bg-green-400'; 
+              barColor = 'bg-green-400';
             } else {
-              barColor = 'bg-primary'; 
+              barColor = 'bg-primary';
             }
             const colorClasses = ['bg-primary', 'bg-green-400'];
             colorClasses.forEach(cls => {
               diskBar.classList.remove(cls);
               if (diskBarWide) diskBarWide.classList.remove(cls);
             });
-            
+
             diskBar.classList.add(barColor);
             if (diskBarWide) diskBarWide.classList.add(barColor);
-            
+
             diskBar.style.width = diskUsagePercent + '%';
             if (diskBarWide) diskBarWide.style.width = diskUsagePercent + '%';
           }
         })
         .catch(error => console.error('Error fetching system stats:', error));
     }
-    
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
       updateToggleDisplay('both');
     });
-    
+
     updateSystemStats();
     setInterval(updateSystemStats, 5000);
     document.getElementById('newStreamForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const csrfToken = document.querySelector('input[name="_csrf"]')?.value;
-      
+
       if (currentStreamMode === 'auto') {
         const ytVideoId = document.getElementById('ytSelectedVideoId').value;
         if (!ytVideoId) {
           showToast('error', 'Please select a video before creating the stream');
           return;
         }
-        
+
         const ytFormData = {
           videoId: ytVideoId,
           title: document.getElementById('ytStreamTitle').value,
@@ -1610,7 +1740,7 @@
           loopVideo: true,
           ytChannelId: document.getElementById('ytSelectedChannelId')?.value || ''
         };
-        
+
         const enableSchedule = document.getElementById('ytEnableSchedule').checked;
         if (enableSchedule) {
           const scheduleStart = document.getElementById('ytScheduleStart').value;
@@ -1618,25 +1748,25 @@
           if (scheduleStart) ytFormData.scheduleStartTime = scheduleStart;
           if (scheduleEnd) ytFormData.scheduleEndTime = scheduleEnd;
         }
-        
+
         const createBtn = document.querySelector('#newStreamModal button[type="submit"]');
         const originalBtnText = createBtn.innerHTML;
         createBtn.innerHTML = '<i class="ti ti-loader animate-spin font-loaded"></i> Creating...';
         createBtn.disabled = true;
         createBtn.classList.add('opacity-70', 'cursor-not-allowed');
-        
+
         function resetCreateBtn() {
           createBtn.innerHTML = originalBtnText;
           createBtn.disabled = false;
           createBtn.classList.remove('opacity-70', 'cursor-not-allowed');
         }
-        
+
         const thumbnailInput = document.getElementById('ytThumbnail');
         if (thumbnailInput.files.length > 0) {
           const formDataObj = new FormData();
           Object.keys(ytFormData).forEach(key => formDataObj.append(key, ytFormData[key]));
           formDataObj.append('thumbnail', thumbnailInput.files[0]);
-          
+
           fetch('/api/streams/youtube', {
             method: 'POST',
             headers: csrfToken ? { 'X-CSRF-Token': csrfToken } : {},
@@ -1686,7 +1816,7 @@
         }
         return;
       }
-      
+
       const videoId = document.getElementById('selectedVideoId').value;
       if (!videoId) {
         showToast('error', 'Please select a video before creating the stream');
@@ -2000,8 +2130,8 @@
       row.className = 'hover:bg-dark-700/50 transition-colors';
       row.dataset.streamId = stream.id;
       const youtubeConnected = <%= typeof youtubeConnected !== 'undefined' && youtubeConnected ? 'true' : 'false' %>;
-      let thumbnail = stream.video_type === 'playlist' ? 
-        '/images/playlist-thumbnail.svg' : 
+      let thumbnail = stream.video_type === 'playlist' ?
+        '/images/playlist-thumbnail.svg' :
         (stream.video_thumbnail || '/images/default-video-thumbnail.svg');
       if (stream.youtube_thumbnail) {
         thumbnail = stream.youtube_thumbnail;
@@ -2180,13 +2310,13 @@
       currentPage = page;
       currentLimit = limit;
       currentSearch = search;
-      
+
       const params = new URLSearchParams({
         page: page,
         limit: limit
       });
       if (search) params.append('search', search);
-      
+
       fetch(`/api/streams?${params.toString()}`)
         .then(response => response.json())
         .then(data => {
@@ -2209,7 +2339,7 @@
           hidePagination();
         });
     }
-    
+
     function updateStreamCountersFromAPI() {
       fetch('/api/streams')
         .then(response => response.json())
@@ -2220,7 +2350,7 @@
         })
         .catch(error => console.error('Error updating counters:', error));
     }
-    
+
     document.addEventListener('DOMContentLoaded', async function () {
       await fetchServerTimeSync();
       if (initialStreamsData && initialStreamsData.length >= 0 && !initialDataUsed) {
@@ -2239,16 +2369,16 @@
     });
     function startStream(streamId) {
       if (!streamId) return;
-      
+
       const actionBtnDesktop = document.getElementById(`action-btn-${streamId}-desktop`);
       const actionBtnMobile = document.getElementById(`action-btn-${streamId}-mobile`);
       const actionBtns = [actionBtnDesktop, actionBtnMobile].filter(btn => btn !== null);
-      
+
       const editBtns = document.querySelectorAll(`button[onclick="editStream('${streamId}')"]`);
       const deleteBtns = document.querySelectorAll(`button[onclick="deleteStream('${streamId}')"]`);
-      
+
       const originalBtnStates = [];
-      
+
       actionBtns.forEach(btn => {
         originalBtnStates.push({
           element: btn,
@@ -2261,7 +2391,7 @@
         btn.classList.add('opacity-70', 'cursor-not-allowed');
         btn.onclick = null;
       });
-      
+
       editBtns.forEach(btn => {
         originalBtnStates.push({
           element: btn,
@@ -2271,7 +2401,7 @@
         btn.disabled = true;
         btn.classList.add('opacity-50', 'cursor-not-allowed');
       });
-      
+
       deleteBtns.forEach(btn => {
         originalBtnStates.push({
           element: btn,
@@ -2281,7 +2411,7 @@
         btn.disabled = true;
         btn.classList.add('opacity-50', 'cursor-not-allowed');
       });
-      
+
       function restoreButtons() {
         originalBtnStates.forEach(state => {
           if (state.type === 'action') {
@@ -2292,7 +2422,7 @@
           state.element.classList.remove('opacity-70', 'opacity-50', 'cursor-not-allowed');
         });
       }
-      
+
       fetch(`/api/streams/${streamId}/status`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -2406,7 +2536,7 @@
     }
     async function deleteStream(streamId) {
       if (!streamId) return;
-      
+
       const confirmed = await createModalDialog({
         type: 'danger',
         icon: 'ti-alert-triangle',
@@ -2416,7 +2546,7 @@
         cancelText: 'Cancel',
         confirmClass: 'bg-red-500 hover:bg-red-600'
       });
-      
+
       if (confirmed) {
         fetch(`/api/streams/${streamId}`, {
           method: 'DELETE',
@@ -2469,31 +2599,31 @@
     let currentEditOrientation = 'horizontal';
 
     let currentStreamMode = 'manual';
-    
+
     function setStreamMode(mode) {
       currentStreamMode = mode;
       const streamModeInput = document.getElementById('streamMode');
       if (streamModeInput) streamModeInput.value = mode;
-      
+
       const manualBtn = document.getElementById('manualModeBtn');
       const autoBtn = document.getElementById('autoModeBtn');
       const manualForm = document.getElementById('manualStreamForm');
       const youtubeForm = document.getElementById('youtubeStreamForm');
-      
+
       if (!manualBtn || !autoBtn || !manualForm || !youtubeForm) {
         return;
       }
-      
+
       const manualStreamTitle = document.getElementById('streamTitle');
       const manualRtmpUrl = document.getElementById('rtmpUrl');
       const manualStreamKey = document.getElementById('streamKey');
-      
+
       if (mode === 'manual') {
         manualBtn.className = 'flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors bg-primary text-white';
         autoBtn.className = 'flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700';
         manualForm.classList.remove('hidden');
         youtubeForm.classList.add('hidden');
-        
+
         if (manualStreamTitle) manualStreamTitle.required = true;
         if (manualRtmpUrl) manualRtmpUrl.required = true;
         if (manualStreamKey) manualStreamKey.required = true;
@@ -2502,11 +2632,11 @@
         manualBtn.className = 'flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700';
         manualForm.classList.add('hidden');
         youtubeForm.classList.remove('hidden');
-        
+
         if (manualStreamTitle) manualStreamTitle.required = false;
         if (manualRtmpUrl) manualRtmpUrl.required = false;
         if (manualStreamKey) manualStreamKey.required = false;
-        
+
         loadYoutubeVideos();
       }
     }
@@ -2519,28 +2649,28 @@
     let ytVideosLoaded = false;
     function loadYoutubeVideos() {
       if (ytVideosLoaded) return;
-      
+
       fetch('/api/videos')
         .then(response => response.json())
         .then(data => {
           if (data.success) {
             const container = document.getElementById('ytVideoListContainer');
             container.innerHTML = '';
-            
+
             const hasPlaylists = data.playlists && data.playlists.length > 0;
             const hasVideos = data.videos && data.videos.length > 0;
-            
+
             if (!hasPlaylists && !hasVideos) {
               container.innerHTML = '<div class="text-center text-gray-400 py-4">No videos or playlists found</div>';
               return;
             }
-            
+
             if (hasPlaylists) {
               const playlistHeader = document.createElement('div');
               playlistHeader.className = 'text-xs text-gray-400 px-2 py-1 font-medium';
               playlistHeader.textContent = 'Playlists';
               container.appendChild(playlistHeader);
-              
+
               data.playlists.forEach(playlist => {
                 const item = document.createElement('div');
                 item.className = 'flex items-center gap-3 p-2 rounded-lg hover:bg-dark-600 cursor-pointer transition-colors';
@@ -2561,19 +2691,19 @@
                 container.appendChild(item);
               });
             }
-            
+
             if (hasVideos) {
               if (hasPlaylists) {
                 const divider = document.createElement('div');
                 divider.className = 'border-t border-gray-600 my-2';
                 container.appendChild(divider);
               }
-              
+
               const videoHeader = document.createElement('div');
               videoHeader.className = 'text-xs text-gray-400 px-2 py-1 font-medium';
               videoHeader.textContent = 'Videos';
               container.appendChild(videoHeader);
-              
+
               data.videos.forEach(video => {
                 const item = document.createElement('div');
                 item.className = 'flex items-center gap-3 p-2 rounded-lg hover:bg-dark-600 cursor-pointer transition-colors';
@@ -2590,7 +2720,7 @@
                 container.appendChild(item);
               });
             }
-            
+
             ytVideosLoaded = true;
           }
         })
@@ -2617,7 +2747,7 @@
       return `${m}:${s.toString().padStart(2, '0')}`;
     }
 
-    document.getElementById('ytEnableSchedule')?.addEventListener('change', function() {
+    document.getElementById('ytEnableSchedule')?.addEventListener('change', function () {
       const scheduleSettings = document.getElementById('ytScheduleSettings');
       if (this.checked) {
         scheduleSettings.classList.remove('hidden');
@@ -2626,11 +2756,11 @@
       }
     });
 
-    document.getElementById('ytThumbnail')?.addEventListener('change', function(e) {
+    document.getElementById('ytThumbnail')?.addEventListener('change', function (e) {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
           document.getElementById('ytThumbnailImg').src = event.target.result;
           document.getElementById('ytThumbnailPreview').classList.remove('hidden');
           document.getElementById('ytThumbnailPlaceholder').classList.add('hidden');
@@ -2639,7 +2769,7 @@
       }
     });
 
-    document.getElementById('ytVideoSearchInput')?.addEventListener('input', function(e) {
+    document.getElementById('ytVideoSearchInput')?.addEventListener('input', function (e) {
       const searchTerm = e.target.value.toLowerCase();
       const items = document.querySelectorAll('#ytVideoListContainer > div');
       items.forEach(item => {
@@ -2675,7 +2805,7 @@
       const newTags = tagString.split(',')
         .map(tag => sanitizeYtTag(tag))
         .filter(tag => tag && !ytTags.includes(tag));
-      
+
       for (const tag of newTags) {
         const potentialLength = [...ytTags, tag].join(',').length;
         if (potentialLength <= YT_TAGS_MAX_CHARS) {
@@ -2688,7 +2818,7 @@
     function renderYtTags() {
       const existingBadges = ytTagsContainer.querySelectorAll('.yt-tag-badge');
       existingBadges.forEach(badge => badge.remove());
-      
+
       ytTags.forEach((tag, index) => {
         const badge = document.createElement('span');
         badge.className = 'yt-tag-badge inline-flex items-center gap-1 px-2 py-0.5 bg-primary/20 border border-primary/30 rounded-full text-xs text-blue-300';
@@ -2700,7 +2830,7 @@
         `;
         ytTagsContainer.insertBefore(badge, ytTagsInput);
       });
-      
+
       ytTagsHidden.value = ytTags.join(',');
       updateYtTagsCharCount();
     }
@@ -2733,14 +2863,14 @@
     }
 
     if (ytTagsInput) {
-      ytTagsInput.addEventListener('paste', function(e) {
+      ytTagsInput.addEventListener('paste', function (e) {
         e.preventDefault();
         const pastedText = (e.clipboardData || window.clipboardData).getData('text');
         addYtTags(pastedText);
         this.value = '';
       });
 
-      ytTagsInput.addEventListener('keydown', function(e) {
+      ytTagsInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ',') {
           e.preventDefault();
           const val = this.value.trim();
@@ -2753,7 +2883,7 @@
         }
       });
 
-      ytTagsInput.addEventListener('input', function(e) {
+      ytTagsInput.addEventListener('input', function (e) {
         const cursorPos = e.target.selectionStart;
         const sanitized = e.target.value.replace(/[^a-zA-Z0-9\s,&\-]/g, '');
         if (sanitized !== e.target.value) {
@@ -2762,7 +2892,7 @@
         }
       });
 
-      ytTagsInput.addEventListener('blur', function() {
+      ytTagsInput.addEventListener('blur', function () {
         const value = this.value.trim();
         if (value) {
           addYtTags(value);
@@ -2772,7 +2902,7 @@
     }
 
     if (ytTagsContainer) {
-      ytTagsContainer.addEventListener('click', function(e) {
+      ytTagsContainer.addEventListener('click', function (e) {
         if (e.target === this || e.target.closest('.yt-tag-badge') === null) {
           ytTagsInput.focus();
         }
@@ -2783,31 +2913,31 @@
     let originalStreamKey = '';
     let currentEditStreamMode = 'manual';
     let editYtTags = [];
-    
+
     function setEditStreamMode(mode) {
       currentEditStreamMode = mode;
       const editStreamModeInput = document.getElementById('editStreamMode');
       if (editStreamModeInput) editStreamModeInput.value = mode;
-      
+
       const manualBtn = document.getElementById('editManualModeBtn');
       const autoBtn = document.getElementById('editAutoModeBtn');
       const manualForm = document.getElementById('editManualStreamForm');
       const youtubeForm = document.getElementById('editYoutubeStreamForm');
-      
+
       if (!manualBtn || !autoBtn || !manualForm || !youtubeForm) {
         return;
       }
-      
+
       const editStreamTitle = document.getElementById('editStreamTitle');
       const editRtmpUrl = document.getElementById('editRtmpUrl');
       const editStreamKey = document.getElementById('editStreamKey');
-      
+
       if (mode === 'manual') {
         manualBtn.className = 'flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors bg-primary text-white';
         autoBtn.className = 'flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700';
         manualForm.classList.remove('hidden');
         youtubeForm.classList.add('hidden');
-        
+
         if (editStreamTitle) editStreamTitle.required = true;
         if (editRtmpUrl) editRtmpUrl.required = true;
         if (editStreamKey) editStreamKey.required = true;
@@ -2816,15 +2946,15 @@
         manualBtn.className = 'flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg transition-colors text-gray-400 hover:text-white hover:bg-dark-700';
         manualForm.classList.add('hidden');
         youtubeForm.classList.remove('hidden');
-        
+
         if (editStreamTitle) editStreamTitle.required = false;
         if (editRtmpUrl) editRtmpUrl.required = false;
         if (editStreamKey) editStreamKey.required = false;
-        
+
         loadEditYoutubeVideos();
       }
     }
-    
+
     function sanitizeEditYtTag(tag) {
       return tag.replace(/[^a-zA-Z0-9\s&\-]/g, '').trim();
     }
@@ -2849,21 +2979,21 @@
       const input = document.getElementById('editYtTagsInput');
       const hidden = document.getElementById('editYtTags');
       if (!container || !input || !hidden) return;
-      
+
       const existingBadges = container.querySelectorAll('.edit-yt-tag-badge');
       existingBadges.forEach(badge => badge.remove());
-      
+
       editYtTags.forEach((tag, index) => {
         const badge = document.createElement('span');
         badge.className = 'edit-yt-tag-badge inline-flex items-center gap-1 px-2 py-0.5 bg-primary/20 border border-primary/30 rounded-full text-xs text-blue-300';
         badge.innerHTML = `<span>${tag}</span><button type="button" class="flex items-center justify-center w-3.5 h-3.5 rounded-full hover:bg-white/20" onclick="removeEditYtTag(${index})"><i class="ti ti-x text-xs"></i></button>`;
         container.insertBefore(badge, input);
       });
-      
+
       hidden.value = editYtTags.join(',');
       updateEditYtTagsCharCount();
     }
-    
+
     function addEditYtTag(tag) {
       const sanitizedTag = sanitizeEditYtTag(tag);
       if (!sanitizedTag || editYtTags.includes(sanitizedTag)) return;
@@ -2873,12 +3003,12 @@
         renderEditYtTags();
       }
     }
-    
+
     function addEditYtTags(tagString) {
       const newTags = tagString.split(',')
         .map(tag => sanitizeEditYtTag(tag))
         .filter(tag => tag && !editYtTags.includes(tag));
-      
+
       for (const tag of newTags) {
         const potentialLength = [...editYtTags, tag].join(',').length;
         if (potentialLength <= EDIT_YT_TAGS_MAX_CHARS) {
@@ -2887,7 +3017,7 @@
       }
       renderEditYtTags();
     }
-    
+
     function removeEditYtTag(index) {
       editYtTags.splice(index, 1);
       renderEditYtTags();
@@ -2899,7 +3029,7 @@
       editYtTags = [];
       renderEditYtTags();
     }
-    
+
     function toggleEditYoutubeVideoSelector() {
       const dropdown = document.getElementById('editYtVideoSelectorDropdown');
       if (dropdown.classList.contains('hidden')) {
@@ -2909,17 +3039,17 @@
         dropdown.classList.add('hidden');
       }
     }
-    
+
     let editYtVideosLoaded = false;
     let editYtAllVideos = [];
     let editYtAllPlaylists = [];
-    
+
     function loadEditYoutubeVideos() {
       if (editYtVideosLoaded) return;
-      
+
       const container = document.getElementById('editYtVideoListContainer');
       container.innerHTML = '<div class="text-center text-gray-400 py-4"><i class="ti ti-loader animate-spin font-loaded"></i> Loading videos...</div>';
-      
+
       fetch('/api/videos')
         .then(response => response.json())
         .then(data => {
@@ -2935,25 +3065,25 @@
           container.innerHTML = '<div class="text-center text-red-400 py-4">Failed to load videos</div>';
         });
     }
-    
+
     function renderEditYoutubeVideos(videos, playlists = []) {
       const container = document.getElementById('editYtVideoListContainer');
       container.innerHTML = '';
-      
+
       const hasPlaylists = playlists && playlists.length > 0;
       const hasVideos = videos && videos.length > 0;
-      
+
       if (!hasPlaylists && !hasVideos) {
         container.innerHTML = '<div class="text-center text-gray-400 py-4">No videos or playlists found</div>';
         return;
       }
-      
+
       if (hasPlaylists) {
         const playlistHeader = document.createElement('div');
         playlistHeader.className = 'text-xs text-gray-400 px-2 py-1 font-medium';
         playlistHeader.textContent = 'Playlists';
         container.appendChild(playlistHeader);
-        
+
         playlists.forEach(playlist => {
           const item = document.createElement('div');
           item.className = 'flex items-center gap-3 p-2 rounded-lg hover:bg-dark-600 cursor-pointer transition-colors';
@@ -2974,19 +3104,19 @@
           container.appendChild(item);
         });
       }
-      
+
       if (hasVideos) {
         if (hasPlaylists) {
           const divider = document.createElement('div');
           divider.className = 'border-t border-gray-600 my-2';
           container.appendChild(divider);
         }
-        
+
         const videoHeader = document.createElement('div');
         videoHeader.className = 'text-xs text-gray-400 px-2 py-1 font-medium';
         videoHeader.textContent = 'Videos';
         container.appendChild(videoHeader);
-        
+
         videos.forEach(video => {
           const item = document.createElement('div');
           item.className = 'flex items-center gap-3 p-2 rounded-lg hover:bg-dark-600 cursor-pointer transition-colors';
@@ -3004,23 +3134,23 @@
         });
       }
     }
-    
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
       const searchInput = document.getElementById('editYtVideoSearchInput');
       if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
+        searchInput.addEventListener('input', function (e) {
           const searchTerm = e.target.value.toLowerCase();
-          const filteredVideos = editYtAllVideos.filter(video => 
+          const filteredVideos = editYtAllVideos.filter(video =>
             video.title.toLowerCase().includes(searchTerm)
           );
-          const filteredPlaylists = editYtAllPlaylists.filter(playlist => 
+          const filteredPlaylists = editYtAllPlaylists.filter(playlist =>
             playlist.name.toLowerCase().includes(searchTerm)
           );
           renderEditYoutubeVideos(filteredVideos, filteredPlaylists);
         });
       }
     });
-    
+
     function selectEditYoutubeVideo(video) {
       document.getElementById('editYtSelectedVideoId').value = video.id;
       if (video.type === 'playlist') {
@@ -3031,8 +3161,8 @@
       }
       document.getElementById('editYtVideoSelectorDropdown').classList.add('hidden');
     }
-    
-    document.getElementById('editYtEnableSchedule')?.addEventListener('change', function() {
+
+    document.getElementById('editYtEnableSchedule')?.addEventListener('change', function () {
       const scheduleSettings = document.getElementById('editYtScheduleSettings');
       if (this.checked) {
         scheduleSettings.classList.remove('hidden');
@@ -3041,11 +3171,11 @@
       }
     });
 
-    document.getElementById('editYtThumbnail')?.addEventListener('change', function(e) {
+    document.getElementById('editYtThumbnail')?.addEventListener('change', function (e) {
       const file = e.target.files[0];
       if (file) {
         const reader = new FileReader();
-        reader.onload = function(event) {
+        reader.onload = function (event) {
           document.getElementById('editYtThumbnailImg').src = event.target.result;
           document.getElementById('editYtThumbnailPreview').classList.remove('hidden');
           document.getElementById('editYtThumbnailPlaceholder').classList.add('hidden');
@@ -3053,17 +3183,17 @@
         reader.readAsDataURL(file);
       }
     });
-    
+
     const editYtTagsInput = document.getElementById('editYtTagsInput');
     if (editYtTagsInput) {
-      editYtTagsInput.addEventListener('paste', function(e) {
+      editYtTagsInput.addEventListener('paste', function (e) {
         e.preventDefault();
         const pastedText = (e.clipboardData || window.clipboardData).getData('text');
         addEditYtTags(pastedText);
         this.value = '';
       });
 
-      editYtTagsInput.addEventListener('keydown', function(e) {
+      editYtTagsInput.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ',') {
           e.preventDefault();
           const value = this.value.replace(',', '').trim();
@@ -3076,7 +3206,7 @@
         }
       });
 
-      editYtTagsInput.addEventListener('input', function(e) {
+      editYtTagsInput.addEventListener('input', function (e) {
         const cursorPos = e.target.selectionStart;
         const sanitized = e.target.value.replace(/[^a-zA-Z0-9\s,&\-]/g, '');
         if (sanitized !== e.target.value) {
@@ -3084,8 +3214,8 @@
           e.target.setSelectionRange(Math.max(0, cursorPos - 1), Math.max(0, cursorPos - 1));
         }
       });
-      
-      editYtTagsInput.addEventListener('blur', function() {
+
+      editYtTagsInput.addEventListener('blur', function () {
         const value = this.value.trim();
         if (value) {
           addEditYtTags(value);
@@ -3096,19 +3226,19 @@
 
     const editYtTagsContainer = document.getElementById('editYtTagsContainer');
     if (editYtTagsContainer) {
-      editYtTagsContainer.addEventListener('click', function(e) {
+      editYtTagsContainer.addEventListener('click', function (e) {
         if (e.target === this || e.target.closest('.edit-yt-tag-badge') === null) {
           editYtTagsInput.focus();
         }
       });
     }
-    
+
     function editStream(streamId) {
       if (!streamId) return;
-      
+
       const editButtons = document.querySelectorAll(`button[onclick="editStream('${streamId}')"]`);
       const originalStates = [];
-      
+
       editButtons.forEach(btn => {
         originalStates.push({
           element: btn,
@@ -3118,14 +3248,14 @@
         btn.innerHTML = '<i class="ti ti-loader animate-spin font-loaded"></i>';
         btn.disabled = true;
       });
-      
+
       function restoreButtons() {
         originalStates.forEach(state => {
           state.element.innerHTML = state.html;
           state.element.disabled = state.disabled;
         });
       }
-      
+
       fetch(`/api/streams/${streamId}`)
         .then(response => response.json())
         .then(data => {
@@ -3145,35 +3275,35 @@
     function openEditStreamModal(stream) {
       originalStreamKey = stream.stream_key;
       document.getElementById('editStreamId').value = stream.id;
-      
+
       const isYoutubeStream = stream.is_youtube_api === true || stream.is_youtube_api === 1;
       const modeSelector = document.getElementById('editStreamModeSelector');
       const manualForm = document.getElementById('editManualStreamForm');
       const youtubeForm = document.getElementById('editYoutubeStreamForm');
-      
+
       if (isYoutubeStream) {
         currentEditStreamMode = 'auto';
         document.getElementById('editStreamMode').value = 'auto';
         modeSelector.classList.add('hidden');
         manualForm.classList.add('hidden');
         youtubeForm.classList.remove('hidden');
-        
+
         document.getElementById('editYtStreamTitle').value = stream.title || '';
         document.getElementById('editYtDescription').value = stream.youtube_description || '';
         document.getElementById('editYtPrivacy').value = stream.youtube_privacy || 'unlisted';
         document.getElementById('editYtCategory').value = stream.youtube_category || '22';
-        
+
         editYtTags = stream.youtube_tags ? stream.youtube_tags.split(',').filter(t => t.trim()) : [];
         renderEditYtTags();
-        
+
         if (stream.video_id) {
           document.getElementById('editYtSelectedVideoId').value = stream.video_id;
-          const ytDisplayName = stream.video_type === 'playlist' 
-            ? `[Playlist] ${stream.playlist_name || stream.video_title}` 
+          const ytDisplayName = stream.video_type === 'playlist'
+            ? `[Playlist] ${stream.playlist_name || stream.video_title}`
             : (stream.video_title || 'Selected Video');
           document.getElementById('editYtSelectedVideo').textContent = ytDisplayName;
         }
-        
+
         const editYtThumbnailPreview = document.getElementById('editYtThumbnailPreview');
         const editYtThumbnailPlaceholder = document.getElementById('editYtThumbnailPlaceholder');
         const editYtThumbnailImg = document.getElementById('editYtThumbnailImg');
@@ -3185,7 +3315,7 @@
           if (editYtThumbnailPreview) editYtThumbnailPreview.classList.add('hidden');
           if (editYtThumbnailPlaceholder) editYtThumbnailPlaceholder.classList.remove('hidden');
         }
-        
+
         if (stream.schedule_time || stream.end_time) {
           document.getElementById('editYtEnableSchedule').checked = true;
           document.getElementById('editYtScheduleSettings').classList.remove('hidden');
@@ -3219,7 +3349,7 @@
           }
           const subscriberCount = stream.youtube_subscriber_count || 0;
           document.getElementById('editYtChannelSubsDisplay').textContent = Number(subscriberCount).toLocaleString() + ' subscribers';
-          
+
           document.querySelectorAll('.edit-channel-option').forEach(opt => {
             opt.classList.remove('bg-gray-700/50', 'selected-channel');
           });
@@ -3228,7 +3358,7 @@
             selectedOption.classList.add('bg-gray-700/50', 'selected-channel');
           }
         }
-        
+
         const editStreamTitle = document.getElementById('editStreamTitle');
         const editRtmpUrl = document.getElementById('editRtmpUrl');
         const editStreamKey = document.getElementById('editStreamKey');
@@ -3241,11 +3371,11 @@
         modeSelector.classList.add('hidden');
         manualForm.classList.remove('hidden');
         youtubeForm.classList.add('hidden');
-        
+
         document.getElementById('editStreamTitle').value = stream.title;
         document.getElementById('editRtmpUrl').value = stream.rtmp_url || '';
         document.getElementById('editStreamKey').value = stream.stream_key || '';
-        
+
         const editStreamTitle = document.getElementById('editStreamTitle');
         const editRtmpUrl = document.getElementById('editRtmpUrl');
         const editStreamKey = document.getElementById('editStreamKey');
@@ -3253,13 +3383,13 @@
         if (editRtmpUrl) editRtmpUrl.required = true;
         if (editStreamKey) editStreamKey.required = true;
       }
-      
+
       if (stream.video_id && !isYoutubeStream) {
         document.getElementById('editSelectedVideoId').value = stream.video_id;
-        const displayName = stream.video_type === 'playlist' 
-          ? (stream.playlist_name || stream.video_title) 
+        const displayName = stream.video_type === 'playlist'
+          ? (stream.playlist_name || stream.video_title)
           : stream.video_title;
-        
+
         const videoData = {
           id: stream.video_id,
           name: displayName,
@@ -3332,7 +3462,7 @@
       });
       updateDurationBadge(true);
     }
-    
+
     function formatDateTimeLocal(date) {
       const serverDate = convertFromServerTime(date.toISOString());
       const year = serverDate.getFullYear();
@@ -3344,19 +3474,19 @@
     }
     function closeEditStreamModal() {
       const modal = document.getElementById('editStreamModal');
-      
+
       modal.classList.remove('active');
-      
+
       resetEditModalForm();
-      
+
       const editDurationBadge = document.getElementById('editDurationBadge');
       if (editDurationBadge) editDurationBadge.classList.add('hidden');
-      
+
       const editDesktopVideo = document.getElementById('edit-native-preview-desktop');
       const editMobileVideo = document.getElementById('edit-native-preview-mobile');
       if (editDesktopVideo) { editDesktopVideo.pause(); editDesktopVideo.src = ''; }
       if (editMobileVideo) { editMobileVideo.pause(); editMobileVideo.src = ''; }
-      
+
       setTimeout(() => {
         modal.classList.add('hidden');
         document.body.style.overflow = '';
@@ -3376,51 +3506,51 @@
       mobilePreview.classList.add('hidden');
       desktopEmptyPreview.classList.remove('hidden');
       mobileEmptyPreview.classList.remove('hidden');
-      
+
       const desktopEmptyContent = desktopEmptyPreview.querySelector('div');
       const mobileEmptyContent = mobileEmptyPreview.querySelector('div');
-      
+
       if (desktopEmptyContent) {
         desktopEmptyContent.innerHTML = `
           <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
           <p class="text-sm text-gray-500">Select a video to preview</p>
         `;
       }
-      
+
       if (mobileEmptyContent) {
         mobileEmptyContent.innerHTML = `
           <i class="ti ti-video text-4xl text-gray-600 mb-2"></i>
           <p class="text-sm text-gray-500">Select a video to preview</p>
         `;
       }
-      
+
       const advancedSettingsContent = document.getElementById('editAdvancedSettingsContent');
       const advancedSettingsCheckbox = document.getElementById('editAdvancedSettingsCheckbox');
       if (advancedSettingsContent && advancedSettingsCheckbox) {
         advancedSettingsContent.classList.add('hidden');
         advancedSettingsCheckbox.checked = false;
       }
-      
+
       const editYtThumbnailPreview = document.getElementById('editYtThumbnailPreview');
       const editYtThumbnailPlaceholder = document.getElementById('editYtThumbnailPlaceholder');
       const editYtThumbnailInput = document.getElementById('editYtThumbnail');
       if (editYtThumbnailPreview) editYtThumbnailPreview.classList.add('hidden');
       if (editYtThumbnailPlaceholder) editYtThumbnailPlaceholder.classList.remove('hidden');
       if (editYtThumbnailInput) editYtThumbnailInput.value = '';
-      
+
       const editYtSelectedVideo = document.getElementById('editYtSelectedVideo');
       const editYtSelectedVideoId = document.getElementById('editYtSelectedVideoId');
       if (editYtSelectedVideo) editYtSelectedVideo.textContent = 'Choose a video...';
       if (editYtSelectedVideoId) editYtSelectedVideoId.value = '';
-      
+
       editYtTags = [];
       renderEditYtTags();
-      
+
       const editYtEnableSchedule = document.getElementById('editYtEnableSchedule');
       const editYtScheduleSettings = document.getElementById('editYtScheduleSettings');
       if (editYtEnableSchedule) editYtEnableSchedule.checked = false;
       if (editYtScheduleSettings) editYtScheduleSettings.classList.add('hidden');
-      
+
       const editYtDurationBadge = document.getElementById('editYtDurationBadge');
       if (editYtDurationBadge) editYtDurationBadge.classList.add('hidden');
     }
@@ -3525,16 +3655,16 @@
       const desktopEmptyPreview = document.getElementById('editEmptyPreview');
       const mobilePreview = document.getElementById('editVideoPreviewMobile');
       const mobileEmptyPreview = document.getElementById('editEmptyPreviewMobile');
-      
+
       if (video.type === 'playlist') {
         desktopPreview.classList.add('hidden');
         mobilePreview.classList.add('hidden');
         desktopEmptyPreview.classList.remove('hidden');
         mobileEmptyPreview.classList.remove('hidden');
-        
+
         const desktopEmptyContent = desktopEmptyPreview.querySelector('div');
         const mobileEmptyContent = mobileEmptyPreview.querySelector('div');
-        
+
         if (desktopEmptyContent) {
           desktopEmptyContent.innerHTML = `
             <i class="ti ti-playlist text-4xl text-blue-400 mb-2"></i>
@@ -3542,7 +3672,7 @@
             <p class="text-xs text-blue-300 mt-1">Playlist selected • ${video.duration || 'Unknown duration'}</p>
           `;
         }
-        
+
         if (mobileEmptyContent) {
           mobileEmptyContent.innerHTML = `
             <i class="ti ti-playlist text-4xl text-blue-400 mb-2"></i>
@@ -3557,7 +3687,7 @@
         mobileEmptyPreview.classList.add('hidden');
         createEditVideoPreview(video);
       }
-      
+
       document.getElementById('editVideoSelectorDropdown').classList.add('hidden');
     }
     function createEditVideoPreview(video) {
@@ -3633,14 +3763,14 @@
             return;
           }
           const csrfToken = document.querySelector('input[name="_csrf"]')?.value;
-          
+
           if (currentEditStreamMode === 'auto') {
             const ytVideoId = document.getElementById('editYtSelectedVideoId').value;
             if (!ytVideoId) {
               showToast('error', 'Please select a video before updating the stream.');
               return;
             }
-            
+
             const ytFormDataObj = {
               streamMode: 'youtube',
               videoId: ytVideoId,
@@ -3652,7 +3782,7 @@
               loopVideo: true,
               ytChannelId: document.getElementById('editYtSelectedChannelId')?.value || ''
             };
-            
+
             const enableSchedule = document.getElementById('editYtEnableSchedule').checked;
             if (enableSchedule) {
               ytFormDataObj.scheduleStartTime = document.getElementById('editYtScheduleStart').value;
@@ -3661,25 +3791,25 @@
               ytFormDataObj.scheduleStartTime = '';
               ytFormDataObj.scheduleEndTime = '';
             }
-            
+
             const saveBtn = document.querySelector('#editStreamModal button[type="submit"]');
             const originalSaveBtnText = saveBtn.innerHTML;
             saveBtn.innerHTML = '<i class="ti ti-loader animate-spin font-loaded"></i> Saving...';
             saveBtn.disabled = true;
             saveBtn.classList.add('opacity-70', 'cursor-not-allowed');
-            
+
             function resetSaveBtn() {
               saveBtn.innerHTML = originalSaveBtnText;
               saveBtn.disabled = false;
               saveBtn.classList.remove('opacity-70', 'cursor-not-allowed');
             }
-            
+
             const editThumbnailInput = document.getElementById('editYtThumbnail');
             if (editThumbnailInput && editThumbnailInput.files.length > 0) {
               const formDataWithFile = new FormData();
               Object.keys(ytFormDataObj).forEach(key => formDataWithFile.append(key, ytFormDataObj[key]));
               formDataWithFile.append('thumbnail', editThumbnailInput.files[0]);
-              
+
               fetch(`/api/streams/${streamId}`, {
                 method: 'PUT',
                 headers: csrfToken ? { 'X-CSRF-Token': csrfToken } : {},
@@ -3729,7 +3859,7 @@
             }
             return;
           }
-          
+
           const videoId = document.getElementById('editSelectedVideoId').value;
           if (!videoId) {
             showToast('error', 'Please select a video before updating the stream.');
@@ -3815,12 +3945,12 @@
       const toggle = document.getElementById(toggleId);
       const content = document.getElementById(contentId);
       const checkbox = document.getElementById(checkboxId);
-      
+
       if (toggle && content && checkbox) {
         toggle.addEventListener('click', function (e) {
           e.preventDefault();
           checkbox.checked = !checkbox.checked;
-          
+
           if (checkbox.checked) {
             content.classList.remove('hidden');
           } else {
@@ -3843,7 +3973,7 @@
       }, 1000);
     }
     let serverTimezoneOffset = null;
-    
+
     async function fetchServerTimeSync() {
       try {
         const response = await fetch('/api/server-time');
@@ -3855,7 +3985,7 @@
         console.error('Error fetching server time:', error);
       }
     }
-    
+
     function updateServerTime() {
       fetch('/api/server-time')
         .then(response => response.json())
@@ -3887,14 +4017,14 @@
           console.error('Error fetching server time:', error);
         });
     }
-    
+
     function convertToServerTime(date) {
       if (serverTimezoneOffset === null) return date;
       const localOffset = date.getTimezoneOffset();
       const offsetDiff = localOffset - serverTimezoneOffset;
       return new Date(date.getTime() + offsetDiff * 60 * 1000);
     }
-    
+
     function convertFromServerTime(isoString) {
       if (!isoString) return null;
       const date = new Date(isoString);
@@ -4080,18 +4210,18 @@
       const paginationContainer = document.getElementById('streams-pagination');
       const paginationInfo = document.getElementById('pagination-info');
       const paginationControls = document.getElementById('pagination-controls');
-      
+
       if (!pagination || pagination.totalCount === 0) {
         hidePagination();
         return;
       }
-      
+
       paginationContainer.classList.remove('hidden');
-      
+
       const startItem = ((pagination.page - 1) * pagination.limit) + 1;
       const endItem = Math.min(pagination.page * pagination.limit, pagination.totalCount);
       paginationInfo.textContent = `Showing ${startItem}-${endItem} of ${pagination.totalCount} streams`;
-      
+
       if (pagination.totalPages <= 1) {
         paginationControls.innerHTML = `
           <select id="streams-limit-select" class="w-16 bg-dark-700 border border-gray-600 text-gray-300 px-2 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary">
@@ -4104,9 +4234,9 @@
         setupLimitSelect();
         return;
       }
-      
+
       let controlsHTML = '';
-      
+
       controlsHTML += `
         <button onclick="goToPage(${Math.max(1, pagination.page - 1)})" 
           class="w-9 h-9 flex items-center justify-center rounded-lg ${pagination.page === 1 ? 'bg-dark-700 text-gray-400 cursor-not-allowed' : 'bg-dark-700 hover:bg-dark-600 text-gray-400 hover:text-white transition-colors'}"
@@ -4114,7 +4244,7 @@
           <i class="ti ti-chevron-left"></i>
         </button>
       `;
-      
+
       let startPage = Math.max(1, pagination.page - 2);
       let endPage = Math.min(pagination.totalPages, pagination.page + 2);
       if (endPage - startPage < 4) {
@@ -4124,7 +4254,7 @@
           startPage = Math.max(1, endPage - 4);
         }
       }
-      
+
       for (let i = startPage; i <= endPage; i++) {
         controlsHTML += `
           <button onclick="goToPage(${i})" 
@@ -4133,7 +4263,7 @@
           </button>
         `;
       }
-      
+
       controlsHTML += `
         <button onclick="goToPage(${Math.min(pagination.totalPages, pagination.page + 1)})" 
           class="w-9 h-9 flex items-center justify-center rounded-lg ${pagination.page === pagination.totalPages ? 'bg-dark-700 text-gray-400 cursor-not-allowed' : 'bg-dark-700 hover:bg-dark-600 text-gray-400 hover:text-white transition-colors'}"
@@ -4141,7 +4271,7 @@
           <i class="ti ti-chevron-right"></i>
         </button>
       `;
-      
+
       controlsHTML += `
         <select id="streams-limit-select" class="ml-2 w-16 bg-dark-700 border border-gray-600 text-gray-300 px-2 py-2 rounded-lg text-sm focus:outline-none focus:ring-1 focus:ring-primary">
           <option value="10" ${pagination.limit === 10 ? 'selected' : ''}>10</option>
@@ -4150,50 +4280,50 @@
           <option value="100" ${pagination.limit === 100 ? 'selected' : ''}>100</option>
         </select>
       `;
-      
+
       paginationControls.innerHTML = controlsHTML;
       setupLimitSelect();
     }
-    
+
     function setupLimitSelect() {
       const limitSelect = document.getElementById('streams-limit-select');
       if (limitSelect) {
-        limitSelect.addEventListener('change', function() {
+        limitSelect.addEventListener('change', function () {
           fetchStreams(1, parseInt(this.value), currentSearch);
         });
       }
     }
-    
+
     function hidePagination() {
       const paginationContainer = document.getElementById('streams-pagination');
       if (paginationContainer) {
         paginationContainer.classList.add('hidden');
       }
     }
-    
+
     function goToPage(page) {
       fetchStreams(page, currentLimit, currentSearch);
     }
-    
+
     function debounceSearch(func, wait) {
       let timeout;
-      return function(...args) {
+      return function (...args) {
         clearTimeout(timeout);
         timeout = setTimeout(() => func.apply(this, args), wait);
       };
     }
-    
+
     document.addEventListener('DOMContentLoaded', function () {
       const searchInput = document.getElementById('streams-search');
       if (searchInput) {
-        const handleSearch = debounceSearch(function() {
+        const handleSearch = debounceSearch(function () {
           const searchTerm = searchInput.value.trim();
           fetchStreams(1, currentLimit, searchTerm);
         }, 500);
-        
+
         searchInput.addEventListener('input', handleSearch);
-        
-        searchInput.addEventListener('keypress', function(e) {
+
+        searchInput.addEventListener('keypress', function (e) {
           if (e.key === 'Enter') {
             e.preventDefault();
             const searchTerm = searchInput.value.trim();
@@ -4204,7 +4334,8 @@
     });
   </script>
 
-  <div id="toast" class="fixed top-16 right-4 bg-dark-800 text-white px-4 py-3 rounded-lg shadow-lg z-50 hidden flex items-center">
+  <div id="toast"
+    class="fixed top-16 right-4 bg-dark-800 text-white px-4 py-3 rounded-lg shadow-lg z-50 hidden flex items-center">
     <i id="toast-icon" class="mr-2"></i>
     <span id="toast-message"></span>
   </div>
@@ -4215,7 +4346,8 @@
         <div class="flex items-center justify-between p-4 sm:px-6 sm:py-4 border-b border-gray-700">
           <h3 class="text-lg font-semibold">Tips Streaming</h3>
           <div class="flex items-center gap-2">
-            <button onclick="backFromTipsStreaming()" class="flex items-center gap-2 px-3 py-1.5 bg-dark-700 hover:bg-dark-600 text-gray-200 rounded-lg transition-colors">
+            <button onclick="backFromTipsStreaming()"
+              class="flex items-center gap-2 px-3 py-1.5 bg-dark-700 hover:bg-dark-600 text-gray-200 rounded-lg transition-colors">
               <i class="ti ti-arrow-left"></i>
               <span class="text-sm">Back</span>
             </button>
@@ -4228,7 +4360,9 @@
           <div class="space-y-3">
             <p class="text-gray-300 text-sm">
               Agar streaming tetap lancar, rekomendasi export video di bitrate
-              <span class="inline-flex items-center px-2 py-0.5 rounded-md bg-green-600 text-white text-xs font-semibold">2000–3000</span> Kbps.
+              <span
+                class="inline-flex items-center px-2 py-0.5 rounded-md bg-green-600 text-white text-xs font-semibold">2000–3000</span>
+              Kbps.
             </p>
             <div class="rounded-lg border border-gray-700 overflow-hidden">
               <img src="/images/export-settings.jpg" alt="Contoh pengaturan export video" class="w-full h-auto block">
@@ -4259,6 +4393,7 @@
         requestAnimationFrame(() => tipsModal.classList.add('active'));
       }
     }
+
     function closeTipsStreaming() {
       const tipsModal = document.getElementById('tipsStreamingModal');
       if (tipsModal) {
@@ -4268,14 +4403,17 @@
       document.body.style.overflow = 'auto';
       window._tipsPrevModal = null;
     }
+
     function backFromTipsStreaming() {
       const tipsModal = document.getElementById('tipsStreamingModal');
       const newModal = document.getElementById('newStreamModal');
       const editModal = document.getElementById('editStreamModal');
+
       if (tipsModal) {
         tipsModal.classList.remove('active');
         tipsModal.classList.add('hidden');
       }
+
       if (window._tipsPrevModal === 'new' && newModal) {
         newModal.classList.remove('hidden');
         requestAnimationFrame(() => newModal.classList.add('active'));
@@ -4287,4 +4425,239 @@
       }
       window._tipsPrevModal = null;
     }
+
+    // Modal Functions
+    function openNewStreamModal() {
+      const modal = document.getElementById('newStreamModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        requestAnimationFrame(() => {
+          modal.classList.add('active');
+        });
+        document.body.style.overflow = 'hidden';
+      } else {
+        console.error('New stream modal not found');
+      }
+    }
+
+    function closeNewStreamModal() {
+      const modal = document.getElementById('newStreamModal');
+      if (modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+      }
+    }
+
+    function closeEditStreamModal() {
+      const modal = document.getElementById('editStreamModal');
+      if (modal) {
+        modal.classList.remove('active');
+        setTimeout(() => {
+          modal.classList.add('hidden');
+        }, 300);
+        document.body.style.overflow = '';
+      }
+    }
+
+    async function editStream(id) {
+      try {
+        const response = await fetch(`/api/streams/${id}`);
+        const data = await response.json();
+
+        if (data.success && data.stream) {
+          const stream = data.stream;
+          const modal = document.getElementById('editStreamModal');
+          if (!modal) return;
+
+          // Populate form fields
+          const titleEl = document.getElementById('editStreamTitle');
+          if (titleEl) titleEl.value = stream.title;
+          const idEl = document.getElementById('editStreamId');
+          if (idEl) idEl.value = stream.id;
+
+          if (stream.platform === 'YouTube' && stream.is_youtube_api) {
+            // YouTube specific handling if needed
+          } else {
+            const rtmpEl = document.getElementById('editRtmpUrl');
+            if (rtmpEl) rtmpEl.value = stream.rtmp_url || '';
+            const keyEl = document.getElementById('editStreamKey');
+            if (keyEl) keyEl.value = stream.stream_key || '';
+          }
+
+          // Render other fields
+          renderEditModal(stream);
+
+          modal.classList.remove('hidden');
+          requestAnimationFrame(() => {
+            modal.classList.add('active');
+          });
+          document.body.style.overflow = 'hidden';
+        } else {
+          showToast('error', 'Failed to load stream details');
+        }
+      } catch (error) {
+        console.error('Error fetching stream details:', error);
+        showToast('error', 'Error loading stream details');
+      }
+    }
+
+    function renderEditModal(stream) {
+      const elements = {
+        'editStreamTitle': stream.title,
+        'editStreamKey': stream.stream_key,
+        'editRtmpUrl': stream.rtmp_url,
+        'editBitrate': stream.bitrate,
+        'editFps': stream.fps
+      };
+
+      for (const [id, value] of Object.entries(elements)) {
+        const el = document.getElementById(id);
+        if (el) el.value = value || '';
+      }
+    }
+
+    function deleteStream(id) {
+      if (!confirm('Are you sure you want to delete this stream?')) return;
+
+      fetch(`/api/streams/${id}`, {
+        method: 'DELETE'
+      })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showToast('success', 'Stream deleted successfully');
+            fetchStreams(1, currentLimit, currentSearch);
+          } else {
+            showToast('error', data.error || 'Failed to delete stream');
+          }
+        })
+        .catch(error => {
+          console.error('Error deleting stream:', error);
+          showToast('error', 'Error deleting stream');
+        });
+    }
+
+    // Stream Listing Functions
+    let currentLimit = 10;
+    let currentSearch = '';
+
+    function fetchStreams(page = 1, limit = 10, search = '') {
+      currentLimit = limit;
+      currentSearch = search;
+
+      const tbody = document.getElementById('stream-list-body');
+      const emptyState = document.getElementById('empty-state');
+
+      if (!tbody) return;
+
+      fetch(`/api/streams?page=${page}&limit=${limit}&search=${encodeURIComponent(search)}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.success && data.streams) {
+            renderStreams(data.streams);
+            if (typeof updatePagination === 'function') {
+              updatePagination({
+                page: data.page,
+                limit: data.limit,
+                totalCount: data.totalCount,
+                totalPages: data.totalPages
+              });
+            }
+
+            if (data.streams.length === 0) {
+              if (emptyState) emptyState.style.display = 'table-row';
+            } else {
+              if (emptyState) emptyState.style.display = 'none';
+            }
+          } else {
+            console.error('Failed to load streams:', data.error);
+          }
+        })
+        .catch(error => console.error('Error fetching streams:', error));
+    }
+
+    function renderStreams(streams) {
+      const tbody = document.getElementById('stream-list-body');
+      if (!tbody) return;
+
+      Array.from(tbody.children).forEach(child => {
+        if (child.id !== 'empty-state') {
+          tbody.removeChild(child);
+        }
+      });
+
+      streams.forEach(stream => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-dark-700/50 transition-colors';
+        tr.innerHTML = getStreamRowHTML(stream);
+        tbody.appendChild(tr);
+      });
+    }
+
+    function getStreamRowHTML(stream) {
+      let statusColor = 'bg-gray-500';
+      if (stream.status === 'live') statusColor = 'bg-green-500';
+      if (stream.status === 'error') statusColor = 'bg-red-500';
+      if (stream.status === 'starting') statusColor = 'bg-yellow-500';
+
+      const youtubeConnected = <%= (typeof youtubeConnected !== 'undefined' && youtubeConnected) ? 'true' : 'false' %>;
+
+      let html = `
+        <td class="px-6 py-4 whitespace-nowrap">
+          <div class="flex items-center">
+            <div class="flex-shrink-0 h-10 w-10 bg-dark-700 rounded-lg flex items-center justify-center overflow-hidden">
+                <i class="${stream.platform_icon || 'ti ti-broadcast'} text-xl text-white"></i>
+            </div>
+            <div class="ml-4">
+              <div class="text-sm font-medium text-white">${stream.title}</div>
+              <div class="text-xs text-gray-400">ID: ${stream.id}</div>
+            </div>
+          </div>
+        </td>
+      `;
+
+      if (youtubeConnected) {
+        html += `
+           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+             ${stream.youtube_channel_id ? 'Connected' : '-'}
+           </td>
+           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+             ${stream.youtube_broadcast_id ? `<a href="https://studio.youtube.com/video/${stream.youtube_broadcast_id}/livestreaming" target="_blank" class="text-blue-400 hover:text-blue-300">View</a>` : '-'}
+           </td>
+         `;
+      }
+
+      html += `
+        <td class="px-6 py-4 whitespace-nowrap">
+          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-dark-700 text-gray-300">
+            ${stream.platform}
+          </span>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-300">
+          ${stream.schedule_time ? new Date(stream.schedule_time).toLocaleString() : '-'}
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap">
+          <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusColor} text-white capitalize">
+            ${stream.status}
+          </span>
+        </td>
+        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+          <button onclick="editStream('${stream.id}')" class="text-primary hover:text-blue-400 mr-3">
+            <i class="ti ti-edit"></i>
+          </button>
+          <button onclick="deleteStream('${stream.id}')" class="text-red-500 hover:text-red-400">
+            <i class="ti ti-trash"></i>
+          </button>
+        </td>
+      `;
+      return html;
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function () {
+      fetchStreams();
+    });
   </script>

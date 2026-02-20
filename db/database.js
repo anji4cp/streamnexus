@@ -6,7 +6,7 @@ const dbDir = path.join(__dirname);
 if (!fs.existsSync(dbDir)) {
   fs.mkdirSync(dbDir, { recursive: true });
 }
-const dbPath = path.join(dbDir, 'streamflow.db');
+const dbPath = path.join(dbDir, 'streamnexus.db');
 const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error('Error connecting to database:', err.message);
@@ -27,7 +27,7 @@ function createTables() {
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
       )`);
-      
+
       db.run(`CREATE TABLE IF NOT EXISTS videos (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
@@ -45,7 +45,7 @@ function createTables() {
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id)
       )`);
-      
+
       db.run(`CREATE TABLE IF NOT EXISTS streams (
         id TEXT PRIMARY KEY,
         title TEXT NOT NULL,
@@ -72,7 +72,7 @@ function createTables() {
         FOREIGN KEY (user_id) REFERENCES users(id),
         FOREIGN KEY (video_id) REFERENCES videos(id)
       )`);
-      
+
       db.run(`CREATE TABLE IF NOT EXISTS stream_history (
         id TEXT PRIMARY KEY,
         stream_id TEXT,
@@ -125,13 +125,13 @@ function createTables() {
         FOREIGN KEY (playlist_id) REFERENCES playlists(id) ON DELETE CASCADE,
         FOREIGN KEY (audio_id) REFERENCES videos(id) ON DELETE CASCADE
       )`);
-      
+
       db.run(`ALTER TABLE users ADD COLUMN user_role TEXT DEFAULT 'admin'`, (err) => {
         if (err && !err.message.includes('duplicate column name')) {
           console.error('Error adding user_role column:', err.message);
         }
       });
-      
+
       db.run(`ALTER TABLE users ADD COLUMN status TEXT DEFAULT 'active'`, (err) => {
         if (err && !err.message.includes('duplicate column name')) {
           console.error('Error adding status column:', err.message);

@@ -24,7 +24,7 @@ function validatePassword(password) {
     return isValid;
 }
 function askUsername() {
-    console.log('\n===== StreamFlow Lite - Password Reset =====\n');
+    console.log('\n===== StreamNexus - Password Reset =====\n');
     rl.question('Enter username: ', async (username) => {
         try {
             const user = await User.findByUsername(username);

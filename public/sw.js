@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'streamflow-v2-cache';
+const CACHE_NAME = 'streamnexus-v2-cache';
 const CACHE_VERSION = '1.0.2';
 const FULL_CACHE_NAME = `${CACHE_NAME}-${CACHE_VERSION}`;
 
@@ -8,10 +8,10 @@ const STATIC_RESOURCES = [
   'https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/fonts/tabler-icons.woff2',
   'https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/fonts/tabler-icons.woff',
   'https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.30.0/fonts/tabler-icons.ttf',
-  
+
   '/css/styles.css',
   '/js/stream-modal.js',
-  
+
   '/images/logo.svg'
 ];
 
@@ -58,10 +58,10 @@ self.addEventListener('fetch', (event) => {
   }
 
   const url = event.request.url;
-  const isFontRequest = url.includes('tabler-icons') || 
-                        url.endsWith('.woff2') || 
-                        url.endsWith('.woff') || 
-                        url.endsWith('.ttf');
+  const isFontRequest = url.includes('tabler-icons') ||
+    url.endsWith('.woff2') ||
+    url.endsWith('.woff') ||
+    url.endsWith('.ttf');
 
   if (isFontRequest) {
     event.respondWith(
@@ -121,14 +121,14 @@ self.addEventListener('fetch', (event) => {
 
 function isStaticResource(url) {
   return STATIC_RESOURCES.some(resource => url.includes(resource)) ||
-         url.includes('tabler-icons') ||
-         url.includes('cdn.jsdelivr.net') ||
-         url.endsWith('.css') ||
-         url.endsWith('.js') ||
-         url.endsWith('.woff2') ||
-         url.endsWith('.woff') ||
-         url.endsWith('.ttf') ||
-         url.endsWith('.svg');
+    url.includes('tabler-icons') ||
+    url.includes('cdn.jsdelivr.net') ||
+    url.endsWith('.css') ||
+    url.endsWith('.js') ||
+    url.endsWith('.woff2') ||
+    url.endsWith('.woff') ||
+    url.endsWith('.ttf') ||
+    url.endsWith('.svg');
 }
 
 self.addEventListener('message', (event) => {

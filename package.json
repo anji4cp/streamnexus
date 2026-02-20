@@ -2,7 +2,7 @@
   "name": "streamnexus",
   "version": "1.0.0",
   "description": "Premium Web-Based Multi-Platform Streaming Solution",
-  "author": "AndisDev",
+  "author": "streamnexus",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

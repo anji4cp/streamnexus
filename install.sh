@@ -3,7 +3,7 @@
 set -e
 
 echo "================================"
-echo "   StreamFlow Quick Installer  "
+echo "   StreamNexus Quick Installer  "
 echo "================================"
 echo
 
@@ -47,8 +47,8 @@ else
 fi
 
 echo "📥 Clone repository..."
-git clone https://github.com/bangtutorial/streamflow
-cd streamflow
+git clone https://github.com/anji4cp/streamnexus.git
+cd streamnexus
 
 echo "⚙️ Installing dependencies..."
 npm install
@@ -70,8 +70,8 @@ else
     sudo npm install -g pm2
 fi
 
-echo "▶️ Starting StreamFlow..."
-pm2 start app.js --name streamflow
+echo "▶️ Starting StreamNexus..."
+pm2 start app.js --name streamnexus
 pm2 save
 
 echo

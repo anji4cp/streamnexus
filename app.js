@@ -21,6 +21,7 @@ const app = express();
 const port = process.env.PORT || 7575;
 
 // View engine setup
+app.engine('ejs', require('ejs-mate'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -35,16 +36,19 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "https://www.google.com", "https://www.gstatic.com", "https://cdn.jsdelivr.net"],
+      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https://www.google.com", "https://www.gstatic.com", "https://cdn.jsdelivr.net", "https://cdn.tailwindcss.com"],
+      scriptSrcAttr: ["'unsafe-inline'"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://cdn.jsdelivr.net", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https:", "blob:"],
-      connectSrc: ["'self'", "https://www.google.com"],
+      connectSrc: ["'self'", "https://www.google.com", "https://api.github.com", "https://cdn.jsdelivr.net"],
       frameSrc: ["'self'", "https://www.google.com"],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
     },
   },
+  crossOriginEmbedderPolicy: false,
+  crossOriginResourcePolicy: false,
 }));
 
 // Session setup
@@ -53,7 +57,7 @@ app.use(session({
     db: 'sessions.db',
     dir: './db'
   }),
-  secret: process.env.SESSION_SECRET || 'streamflow_secret_key_change_this',
+  secret: process.env.SESSION_SECRET || 'streamnexus_secret_key_change_this',
   resave: false,
   saveUninitialized: false,
   cookie: {
@@ -64,8 +68,10 @@ app.use(session({
 
 // Make user available to all views
 app.use((req, res, next) => {
+  res.locals.req = req;
   res.locals.user = req.session.userId ? { id: req.session.userId, username: req.session.username, avatar_path: req.session.avatar_path } : null;
   res.locals.path = req.path;
+  res.locals.appVersion = require('./package.json').version;
   next();
 });
 
@@ -101,7 +107,7 @@ app.use((err, req, res, next) => {
   res.status(500).render('error', {
     title: 'Error',
     message: 'Something went wrong!',
-    error: process.env.NODE_ENV === 'development' ? err : {}
+    error: (process.env.NODE_ENV === 'development' || !process.env.NODE_ENV) ? err : {}
   });
 });
 
@@ -117,7 +123,7 @@ if (require.main === module) {
     }
 
     const ipAddresses = getLocalIpAddresses();
-    console.log(`StreamFlow running at:`);
+    console.log(`StreamNexus running at:`);
     if (ipAddresses && ipAddresses.length > 0) {
       ipAddresses.forEach(ip => {
         console.log(`  http://${ip}:${port}`);
