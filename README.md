@@ -72,9 +72,5 @@ Visit `http://YOUR_SERVER_IP:7575`
 docker-compose up -d --build
 ```
 
-## 📄 License
-
-Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
-
 ---
 © 2026 - **streamnexus**

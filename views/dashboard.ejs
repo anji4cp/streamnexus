@@ -1383,8 +1383,8 @@
     }
   </style>
   <script>
-    const initialStreamsData = <% - typeof initialStreams !== 'undefined' ? initialStreams : '[]' %>;
-    const initialPaginationData = <% - typeof initialPagination !== 'undefined' ? initialPagination : '{"page":1,"limit":10,"totalCount":0,"totalPages":0}' %>;
+    const initialStreamsData = <%- typeof initialStreams !== 'undefined' ? initialStreams : '[]' %>;
+    const initialPaginationData = <%- typeof initialPagination !== 'undefined' ? initialPagination : '{"page":1,"limit":10,"totalCount":0,"totalPages":0}' %>;
     let initialDataUsed = false;
 
     function showToast(type, message) {
