@@ -1,6 +1,6 @@
 <div align="center">
 
-![logo](public/images/logo_readme.svg)
+<img src="public/images/logo_readme.svg" alt="StreamNexus Logo" width="320">
 
 # StreamNexus
 ### Premium Multi-Platform Streaming Solution
