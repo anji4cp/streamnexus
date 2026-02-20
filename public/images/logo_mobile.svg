@@ -1,15 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 40">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 44" fill="none">
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#0055FF;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0043CA;stop-opacity:1" />
+    <linearGradient id="mLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3B82F6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <!-- Icon (Simplified version of the original) -->
-  <path fill="url(#grad1)" d="M10 10 h10 v5 h-10 z M15 18 h10 v5 h-10 z M10 26 h10 v5 h-10 z" />
-  
+  <!-- Icon -->
+  <rect x="2" y="4" width="36" height="36" rx="9" fill="url(#mLogoGrad)"/>
+  <path d="M15 14 L27 22 L15 30Z" fill="white" opacity="0.95"/>
+  <path d="M25 15.5 C27.5 17.5 27.5 26.5 25 28.5" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.6"/>
+  <path d="M28 13 C31.5 15.5 31.5 28.5 28 31" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.35"/>
   <!-- Text -->
-  <text x="35" y="28" font-family="Inter, system-ui, sans-serif" font-weight="bold" font-size="24" fill="white">StreamNexus</text>
-  <text x="35" y="38" font-family="Inter, system-ui, sans-serif" font-size="8" fill="#888">by anji4cp</text>
+  <text x="46" y="28" font-family="Inter, system-ui, -apple-system, sans-serif" font-weight="bold" font-size="22" fill="white">StreamNexus</text>
+  <text x="46" y="39" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="8" fill="#9CA3AF">by anji4cp</text>
 </svg>
