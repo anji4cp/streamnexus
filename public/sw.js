@@ -1,6 +1,6 @@
 
 const CACHE_NAME = 'streamnexus-v2-cache';
-const CACHE_VERSION = '1.0.2';
+const CACHE_VERSION = '1.0.4';
 const FULL_CACHE_NAME = `${CACHE_NAME}-${CACHE_VERSION}`;
 
 const STATIC_RESOURCES = [
@@ -12,7 +12,8 @@ const STATIC_RESOURCES = [
   '/css/styles.css',
   '/js/stream-modal.js',
 
-  '/images/logo.svg'
+  '/images/logo.svg',
+  '/images/logo_mobile.svg'
 ];
 
 self.addEventListener('install', (event) => {
@@ -38,6 +39,10 @@ self.addEventListener('activate', (event) => {
       .then((cacheNames) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
+            if (cacheName.startsWith('streamflow')) {
+              console.log('Service Worker: Deleting legacy cache', cacheName);
+              return caches.delete(cacheName);
+            }
             if (cacheName.startsWith(CACHE_NAME) && cacheName !== FULL_CACHE_NAME) {
               console.log('Service Worker: Deleting old cache', cacheName);
               return caches.delete(cacheName);
