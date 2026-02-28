@@ -49,12 +49,11 @@ app.use(helmet({
       connectSrc: ["'self'", "https://www.google.com", "https://api.github.com", "https://cdn.jsdelivr.net"],
       frameSrc: ["'self'", "https://www.google.com"],
       objectSrc: ["'none'"],
-      upgradeInsecureRequests: [],
     },
-  },
-  crossOriginEmbedderPolicy: false,
-  crossOriginResourcePolicy: false,
-}));
+    crossOriginEmbedderPolicy: false,
+    crossOriginOpenerPolicy: false,
+    crossOriginResourcePolicy: false,
+  }));
 
 // Session setup
 app.use(session({
