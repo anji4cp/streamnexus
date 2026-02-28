@@ -50,10 +50,11 @@ app.use(helmet({
       frameSrc: ["'self'", "https://www.google.com"],
       objectSrc: ["'none'"],
     },
-    crossOriginEmbedderPolicy: false,
-    crossOriginOpenerPolicy: false,
-    crossOriginResourcePolicy: false,
-  }));
+  },
+  crossOriginEmbedderPolicy: false,
+  crossOriginOpenerPolicy: false,
+  crossOriginResourcePolicy: false,
+}));
 
 // Session setup
 app.use(session({
