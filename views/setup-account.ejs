@@ -50,6 +50,21 @@
         </div>
         <% } %>
           <form id="setupForm" action="/setup-account" method="post" enctype="multipart/form-data" class="space-y-6">
+            <script>
+              // Force HTTP action to prevent browser auto-upgrade to HTTPS
+              document.addEventListener('DOMContentLoaded', () => {
+                const form = document.getElementById('setupForm');
+                const currentUrl = window.location.href.split('?')[0].split('#')[0];
+                if (currentUrl.startsWith('https://')) {
+                  // If the page itself was somehow forced to https, this won't help much, 
+                  // but we'll try to point the action back to http.
+                  form.action = currentUrl.replace('https://', 'http://');
+                } else {
+                  form.action = currentUrl;
+                }
+                console.log('Form action set to:', form.action);
+              });
+            </script>
             <input type="hidden" name="user_role" value="admin">
             <input type="hidden" name="status" value="active">
 
