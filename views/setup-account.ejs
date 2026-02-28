@@ -217,12 +217,16 @@
       };
     }
     document.getElementById('setupForm').addEventListener('submit', function (e) {
+      console.log('Setup form submit triggered');
       const password = document.getElementById('password').value;
       const confirmPassword = document.getElementById('confirm-password').value;
       if (password !== confirmPassword) {
+        console.log('Password mismatch');
         e.preventDefault();
         document.getElementById('password-mismatch').classList.remove('hidden');
         document.getElementById('password-match').classList.add('hidden');
+      } else {
+        console.log('Validation passed, submitting form...');
       }
     });
   </script>
